@@ -2,7 +2,6 @@
 const _ = require("lodash");
 const bodyParser = require("body-parser");
 const express = require("express");
-const fse = require("fs-extra");
 const sass = require("node-sass");
 
 // App dependencies
@@ -13,18 +12,28 @@ const app = express();
 let port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ type: "application/json" }));
 
 // UI Routing
 app.get("/", (req, res) => res.send("Hello world!"));
 
 // API Routing
 app.post("/api/compile", (req, res) => {
-  res.json(req.body.variables);
-  sassCompiler.sassCompiler(
-    "./sass/main.scss",
-    req.body.variables
-  );
+  var dataString =
+    sassCompiler.sassVariables(req.body.variables) +
+    sassCompiler.sassImport("./sass/main.scss");
+  var sassOptions = _.assign({}, sassCompiler.sassOptions, {
+    data: dataString
+  });
+
+  sass.render(sassOptions, function(err, result) {
+    if (err) {
+      console.log("error: " + err);
+    } else {
+      res.send(result.css.toString());
+      sassCompiler.writeCssOutputToFile("./public/css/main.css", result.css);
+    }
+  });
 });
 
 // Initiate server
