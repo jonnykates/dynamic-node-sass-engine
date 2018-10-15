@@ -1,5 +1,6 @@
 // Vendor dependencies
 const _ = require("lodash");
+const bodyParser = require("body-parser");
 const express = require("express");
 const fse = require("fs-extra");
 const sass = require("node-sass");
@@ -11,15 +12,18 @@ const sassCompiler = require("./sassCompiler");
 const app = express();
 let port = 3000;
 
-// Routing
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// UI Routing
 app.get("/", (req, res) => res.send("Hello world!"));
-app.get("/compile", (req, res) => {
-  res.send("Compiling");
+
+// API Routing
+app.post("/api/compile", (req, res) => {
+  res.json(req.body.variables);
   sassCompiler.sassCompiler(
     "./sass/main.scss",
-    {
-      colour: "blue"
-    }
+    req.body.variables
   );
 });
 
