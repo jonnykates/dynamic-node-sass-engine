@@ -36,7 +36,7 @@ app.post("/api/compile", (req, res) => {
         .then(function(result) {
           res.send(result.css.toString());
           sassCompiler.writeCssOutputToFile(
-            "./dist/css/" + req.body.theme + ".css",
+            "./dist/" + req.body.theme + "/" + req.body.theme + ".css",
             result.css
           );
         });
