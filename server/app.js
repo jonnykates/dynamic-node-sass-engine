@@ -21,7 +21,7 @@ app.post("/api/compile", (req, res) => {
   var dataString =
     sassCompiler.sassVariables(req.body.variables) +
     sassCompiler.sassImport(
-      "./sass/" + req.body.theme + "/" + req.body.theme + ".scss"
+      "./src/" + req.body.theme + "/" + req.body.theme + ".scss"
     );
   var sassOptions = _.assign({}, sassCompiler.sassOptions, {
     data: dataString
@@ -36,7 +36,7 @@ app.post("/api/compile", (req, res) => {
         .then(function(result) {
           res.send(result.css.toString());
           sassCompiler.writeCssOutputToFile(
-            "./public/css/" + req.body.theme + ".css",
+            "./dist/css/" + req.body.theme + ".css",
             result.css
           );
         });

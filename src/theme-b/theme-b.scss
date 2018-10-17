@@ -3,3 +3,7 @@
 body {
   background-color: $colour;
 }
+
+input::placeholder {
+  color: grey;
+}
