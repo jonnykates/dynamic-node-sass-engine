@@ -17,7 +17,6 @@ module.exports = {
     return "@import '" + path + "';";
   },
   sassOptions: {
-    // includePaths: ["./sass/main.scss"],
     outputStyle: "compressed"
   },
   writeCssOutputToFile: (dest, src) => {
