@@ -1,0 +1,206 @@
+// =========
+// Carousel
+// =========
+
+$carousel-overlay-colour: #222;
+$carousel-overlay-opacity: 0.6;
+$carousel-overlay-width: 40%;
+
+$carousel-controls-colour: #fff;
+$carousel-caption-text-color: #fff;
+
+
+.carouselSides{
+	position: relative;
+}
+
+.carouselDetailWrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin-left: 0;
+	top: 0;
+	left: 0;
+	background-color: rgba($carousel-overlay-colour,$carousel-overlay-opacity);
+
+	p,
+	h2.carouselSlideHeading a,
+	h2.carouselSlideHeading a:link,
+	.totaliserFigure,
+	.totaliserLabel,{
+		color: $carousel-caption-text-color;
+	}
+}
+
+.carouselSlideDetail{
+	width: 85%;
+	padding: 0;
+	background-color: transparent;
+	position: relative;
+	margin: 0 auto;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 1em;
+}
+
+
+// ====================
+// Carousel Center Text
+// ====================
+
+.carouselSlideDetail{
+	font-size: inherit;
+	max-width: 900px;
+	h2, p{
+		text-align: center;
+	}
+	h2{
+		margin-top: 0;
+		font-size: 2.4rem;
+		a:hover{
+			text-decoration: none;
+		}
+	}
+	p{
+		margin-bottom: 0;
+		font-size: 1.25rem;
+	}
+	.readMore {
+		display: none;
+	}
+}
+
+
+// =====================
+// Add slide fade in/out
+// =====================
+
+.carouselSlide{
+	display: block;
+	opacity: 1;
+	position: relative;
+	-webkit-transition: opacity 500ms ease-in-out;
+	-moz-transition: opacity 500ms ease-in-out;
+	transition: opacity 500ms ease-in-out;
+	max-height: none;
+	&.hidden{
+		opacity: 0;
+		display: block !important;
+		position: absolute;
+		width: 100%;
+	}
+}
+
+.carouselSlideTitle{
+	display: block;
+	position: relative;
+}
+
+// Position the video play button
+
+.showsVideo{
+	height: 100%;
+	width: 100%;
+	display: block;
+	&:before{
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		text-align: center;
+		width: 160px;
+		height: 160px;
+		line-height: 160px;
+		z-index: 1;
+		top: 30%;
+	}
+}
+
+.showsVideo + .carouselDetailWrapper .carouselSlideSummary{
+	display: none;
+}
+
+.showsVideo + .carouselDetailWrapper .carouselSlideDetail{
+	margin-top: 100px;
+	h2{
+		margin: 0;
+	}
+}
+
+section.carousel.carouselImageSingle:not(.hasCaption){
+	.showsVideo:before{
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+
+// ===================
+// Carousel totalisers
+// ===================
+
+.carousel{
+
+	.totaliserPanel{
+		max-width: 200px;
+		margin: 20px auto;
+	}
+
+	#totaliserActions{
+		text-align: center;
+
+		.buttonFundraise,
+		.buttonDonate{
+			float: none;
+			margin: 0px 5px 0 0;
+			@media screen and (max-width: $mobile-breakpoint){
+				width: 100%;
+				margin: 0 0 5px 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1000px){
+	.carousel ul { /* overwrite bf */
+	    margin-top: 0;
+	}
+}
+
+
+@media screen and (max-width: $mobile-breakpoint){
+
+	.carouselDetailWrapper{
+		position: relative;
+	}
+
+	.carouselSlideDetail{
+		width: 100%;
+		padding: 20px;
+		top: auto;
+		-ms-transform: none;
+		-webkit-transform: none;
+		transform: none;
+		background-color: rgba($carousel-overlay-colour,1);
+		max-width: none;
+		h2 {
+			font-size: 2rem;
+		}
+	}
+
+	.showsVideo{
+		&:before{
+			top: 50%;
+			transform: translateY(-50%);
+			bottom: auto;
+		}
+
+		&+ .carouselDetailWrapper .carouselSlideDetail{
+			margin-top: 0;
+		}
+	}
+}
+
+// Import carousel controls and buttons - note you may have to change the controls and buttons colour
+@import 'carouselControlsButtons';

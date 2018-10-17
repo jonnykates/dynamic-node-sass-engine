@@ -1,0 +1,53 @@
+// ====== //
+// Tables //
+// ====== //
+
+table{
+
+  h1, h2, h3, h4, h5{
+    margin: 0;
+    font-weight: 400;
+  }
+
+  td{
+    font-size: $default-body-font-size;
+  }
+
+  h2{
+    margin-bottom: 1em;
+  }
+}
+
+tbody, thead{
+  background-color: #fff;
+  border: 1px solid $border-color;
+}
+
+thead{
+  tr:nth-child(odd){
+    background-color: #fff;
+  }
+}
+
+tr{
+
+  &:nth-child(odd){
+    background-color: rgba($border-color,0.5);
+  }
+
+  &:nth-child(even){
+  }
+}
+
+td{
+  padding: 10px;
+}
+
+@media (max-width: $mobile-breakpoint){
+  table{
+    max-width: 100%;
+    height: auto !important;
+    display: block;
+    overflow: auto;
+  }
+}

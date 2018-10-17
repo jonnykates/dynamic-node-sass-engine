@@ -1,0 +1,107 @@
+// ==========
+// Totalisers
+// ==========
+
+$totaliser-total-color: $primary-colour;
+
+.totaliserPanel, .appealTotaliser{
+	display: block;
+	color: inherit;
+
+	.raisedWrapper, .targetWrapper{
+		width: 50%;
+	}
+}
+
+.totaliserDone{
+	background-color: $totaliser-total-color;
+}
+
+.totaliserFigure{
+	margin-top: 0;
+}
+
+#totaliserActions{
+	display: block;
+
+	@include clearFix;
+}
+
+.appealTotaliser{
+	margin-bottom: 40px;
+}
+
+
+// ====================
+// Raised / Target text
+// ====================
+
+.raisedWrapper, .targetWrapper{
+	margin-bottom: 0;
+	float: left;
+}
+
+.totaliserLabel{
+	font-size: $default-body-font-size * 0.85;
+  color: rgba($main-font-colour,0.5);
+
+  @if $heading-uppercase == true {
+    text-transform: uppercase;
+  }
+}
+
+.totaliserFigure{
+	font-size: $default-body-font-size;
+	color: $main-font-colour;
+}
+
+.raisedWrapper{
+	margin-top: 10px;
+}
+
+
+// ===================
+// Carousel totalisers
+// ===================
+
+.carousel{
+
+	.totaliserGivingPanel{
+		display: none;
+	}
+}
+
+#totaliserActions{
+	.buttonDonate{
+		float: left;
+		margin: 20px 10px 0 0;
+	}
+	.buttonFundraise{
+		margin: 20px 0 0 0;
+	}
+}
+
+@media (max-width: 1000px){
+
+	.totaliserPanel{
+		width:100%;
+		margin-top:0;
+		float:none;
+	}
+}
+
+@media (max-width: $mobile-breakpoint){
+
+	#totaliserActions{
+		text-align: center;
+	}
+
+}
+
+
+@include animationTotaliser;
+
+@if $totaliser-settings == "horizontal" {
+	@include horizontalTotaliser;
+}
+

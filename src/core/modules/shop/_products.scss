@@ -1,0 +1,315 @@
+//==============
+// Products list
+//==============
+
+.shopLandingContent{
+	width: 100%;
+	float: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.postFooterWrapper{
+		display: block;
+	}
+}
+
+.shopLandingContent,
+.productList{
+	.listedPost.listedProduct{
+		@include column-span(3);
+		@include image-text-layout("horizontal-split");
+		border: 0;
+		.productBanner {
+			width: 100%;
+			float: none;
+		}
+	}
+}
+
+.productListOrder{
+	margin-bottom: 40px;
+	font-size: 1em;
+}
+
+.listedProductText{
+	width: 100%;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	float: none;
+	flex-grow: 1;
+	justify-content: space-between;
+
+	h2{
+		margin-top: 0;
+	}
+
+	.readMore, .relatedWrapper{
+		display: none;
+	}
+}
+
+
+
+
+// ============
+// Product post
+// ============
+
+.productPostPage{
+	margin-top: 100px;
+	.postFooterWrapper{
+		margin-top: 40px;
+		.relatedWrapper{
+			display: none;
+		}
+	}
+
+	.postAside{
+		width: 100%;
+		float: none;
+		padding: 0;
+
+		h3{
+			margin-top: 40px;
+		}
+		ul{
+			li{
+				width: 25%;
+				float: left;
+				padding: 0 15px;
+				border-bottom: 0;
+				margin-bottom: 30px;
+				&:nth-child(4n+1){
+					clear: left;
+				}
+			}
+		}
+	}
+
+	.productBannerWrapper {
+		width: 33.333%;
+
+		span {
+			width: 100%;
+		}
+
+		img{
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	.productBannerList {
+		display: flex;
+		flex-wrap: wrap;
+
+		li {
+			margin: 0 10px 10px 0;
+			min-width: 50px;
+		}
+	}
+
+	.productText{
+		width: 66.666%;
+		float: right;
+		padding-left: 20px;
+	}
+
+	.productReviews{
+		clear: both;
+		float: left;
+		width: 100%;
+	}
+}
+
+.productContentWrapper{
+	@include clearFix;
+}
+
+.formQuestion.productQuantity{
+	width: 20%;
+}
+
+.productActions{
+	padding-top: 30px;
+	position: relative;
+	width: 80%;
+}
+
+
+//===============
+// Product footer
+//===============
+
+.postFooterWrapper  .productFooter{
+	font-size: 1em;
+	padding: 0;
+	border: 0;
+
+	.footerDepartments{
+		margin-top: 0;
+	}
+
+	.goToCheckout{
+		display: none;
+	}
+}
+
+.productFooter{
+	position: relative;
+}
+
+.footerDepartments{
+	margin-top: 0;
+}
+
+// ===============
+// Product reviews
+// ===============
+
+.productReviews{
+	 .formWrapper{
+		margin: 0;
+		max-width: 100%;
+	}
+	textarea{
+		margin-top: 15px;
+	}
+
+	.postComments .commentForm button.addComment{
+		margin-top: 5px;
+	}
+}
+
+//=================
+// Related Products
+//=================
+
+.relatedProducts{
+	clear: both;
+	ul.associatedListing li img{
+		display: block;
+	}
+
+	&.associated:first-child{
+		margin-top: 40px;
+	}
+}
+
+
+// Added text
+.oneUp {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+
+@media screen and (max-width: 767px){
+
+	.shopLandingContent, .productList{
+		width: 100%;
+		float: none;
+		padding-right: 0;
+		flex-direction: column;
+		.listedPost.listedProduct{
+			width: 100%;
+			float: none;
+			display: block;
+		}
+	}
+
+	.listedProductText{
+		h2{
+			font-size: 24px;
+		}
+	}
+
+	.productPostPage{
+		margin-top: 20px;
+
+		.productBannerWrapper {
+			padding-right: 0;
+			float: none;
+			text-align: center;
+			width: 100%;
+
+			.productBannerList{
+				li{
+					float: none;
+					display: inline-block;
+				}
+			}
+		}
+
+		.productText{
+			float: none;
+			width: 100%;
+			padding-left: 0;
+		}
+
+		.postAside ul li{
+			width: 50%;
+
+			&:nth-child(4n+1){
+				clear: none;
+			}
+
+			&:nth-child(2n+1){
+				clear: left;
+			}
+		}
+	}
+
+	.formQuestion.productQuantity{
+		width: 100%;
+		max-width: 100px;
+	}
+
+	.productActions{
+		width: 100%;
+		max-width: calc(100% - 120px);
+	}
+
+}
+
+
+@media screen and (max-width: 480px){
+	.productPostPage{
+
+		.postAside ul li{
+			width: 100%;
+
+			&:nth-child(2n+1){
+				clear: none;
+			}
+		}
+	}
+
+	.formQuestion.productQuantity,
+	.productActions{
+		width: 100%;
+		float: none;
+		max-width: 100%;
+	}
+
+	.productActions{
+		padding: 0;
+		margin-top: 10px;
+
+		a.button:link{
+			width: 100%;
+			margin: 0 0 5px 0;
+		}
+	}
+
+	.productFooter{
+		a.button:link{
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+}

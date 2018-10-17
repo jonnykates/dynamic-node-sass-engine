@@ -1,0 +1,42 @@
+// Clients often try to use the table from the WYSIWYG to achieve layout
+// A good example might be trying to create a list of staff profiles in the body text of a page post
+// This table class aims to provide an easy way of fixing some of the frequent issues that this can present
+
+table.flexTable {
+  margin: 20px 0;
+  width: 100% !important;
+  height: auto !important;
+
+  tbody {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  tr {
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+  }
+
+  tr:nth-child(odd) {
+    background-color: transparent;
+  }
+
+  td {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+  }
+}
+
+// Justify the contents centrally
+table.flexTable--central tbody {
+  justify-content: center;
+  text-align: center;
+}

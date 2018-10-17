@@ -1,0 +1,141 @@
+// ==================
+// Animate totalisers
+// ==================
+
+@mixin animationTotaliser{
+
+	.totaliserDone{
+		animation: totaliser-grow 5s ease-out 1;
+	}
+
+	@keyframes totaliser-grow {
+	  0%   { height: 0; }
+	}
+}
+
+
+// =====================
+// Horizontal totalisers
+// =====================
+
+// NOTE: This mixin uses the transform property to rotate our standard vertical totaliser 90 degrees to the right.
+// As a result, we have to set the height of the totaliser explicitly, as we cannot get it to automatically "expand" to the width of the parent container.
+// This may cause problems with tablet / mobile devices, as the height of the totaliser cannot grow to fit the width of the parent container.
+// An easy workaround is set two width variables as below, and write your own media queries according to your own build.
+
+
+@mixin horizontalTotaliser{
+
+	$totaliserWidth: 260px;
+
+	.appealTotaliser,
+	.totaliserPanel{
+		position: relative;
+		margin: 0 auto;
+		height: 80px;
+
+		@media (max-width: $mobile-breakpoint) {
+			height: 0;
+		}
+
+		width: $totaliserWidth;
+		.raisedWrapper,
+		.targetWrapper{
+			position: absolute;
+			bottom: 0;
+		}
+
+		.targetWrapper{
+			right: 0;
+
+			.totaliserFigure,
+			.totaliserLabel{
+				text-align: right;
+			}
+		}
+
+		.raisedWrapper{
+			left: 0;
+		}
+	}
+
+	@media (max-width: $mobile-breakpoint) {
+		.carousel .appealTotaliser,
+		.carousel .totaliserPanel {
+			height: 80px;
+		}
+	}
+
+	.totaliserBG{
+		width: 25px;
+		height: 100%;
+		min-height: $totaliserWidth;
+		margin: 0;
+		float: none;
+		position: absolute;
+		border-radius: 25px;
+		overflow: hidden;
+		-webkit-transform: rotate(-90deg) translateX(-100%);
+		transform: rotate(-90deg) translateX(-100%);
+		transform-origin: top left;
+		left: 0;
+		right: 0;
+	}
+
+	.totaliserDone{
+		top: 0;
+	}
+
+
+	// ==================
+	// Carousel totaliser
+	// ==================
+
+	.carousel{
+		.totaliserPanel{
+			margin: 40px auto;
+			//margin: 40px auto; // Use this if you want the totaliser to be centered in your carousel
+			width: $totaliserWidth;
+			max-width: 100%;
+
+			.totaliserBG{
+				height: $totaliserWidth;
+			}
+		}
+
+		#totaliserActions{
+			display: block;
+
+			.buttonFundraise,
+			.buttonDonate{
+				float: none;
+				margin: 0px 5px 0 0;
+			}
+		}
+	}
+
+
+	// ========================
+	// Appeal sidebar totaliser
+	// ========================
+	.formDonatePage .appealTotaliser,
+	.appealWidgetsWrapper{
+		.totaliserPanel{
+			max-width: 100%;
+			min-height: 100%;
+		}
+
+		.appealTotaliser{
+			margin-bottom: 40px;
+		}
+
+		.totaliserBG{
+			min-height: $totaliserWidth;
+		}
+	}
+
+	.formDonatePage .appealTotaliser .totaliserPanel{
+		height: 100px;
+	}
+
+}

@@ -1,0 +1,5 @@
+// Remove bottom padding from addresses in footer
+// Keyed off snippet title
+.footerBox.FooterFindUs p {
+  margin-bottom: 0px;
+}

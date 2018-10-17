@@ -1,0 +1,198 @@
+// =================
+// Carousel controls
+// =================
+
+ul.carouselControls{
+	display: none;
+	padding: 0 20px;
+	width: 100%;
+	li{
+		a{
+			color: rgba($carousel-controls-colour,0.6);
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			&:before{
+				line-height: 40px;
+				font-size: 40px;
+				height: 40px;
+				font-family: 'FontAwesome';
+			}
+			&:hover{
+				color: $carousel-controls-colour;
+				&:before{
+					color: inherit;
+				}
+			}
+		}
+	}
+}
+
+.carouselControlPrev:before{
+	content: '\f137';
+}
+
+.carouselControlNext{
+	float: right;
+	&:before{
+		content: '\f138';
+	}
+}
+
+
+
+// ================
+// Carousel buttons - radio buttons
+// ================
+
+ul.carouselButtons{
+	text-align: center;
+	background-color: transparent;
+	position: absolute;
+	bottom: 30px;
+	padding: 0 50px;
+	li{
+		display: inline-block;
+		border: 0;
+		padding: 0;
+		float: none;
+		width: auto;
+		background-color: transparent;
+		margin: 0;
+		&.activeSlide{
+			border-bottom: 0;
+			a.button {
+				background-color: $primary-colour;
+			}
+		}
+		a.button{
+			width: 18px;
+			height: 18px;
+			background-color: rgba($carousel-controls-colour,0.8);
+			display: block;
+			-moz-border-radius: 18px;
+			-webkit-border-radius: 18px;
+			border-radius: 18px;
+			overflow: hidden;
+			padding: 0;
+			text-indent: 40px;
+			&:hover{
+				background-color: rgba($carousel-controls-colour,1);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+
+	// Hide the carousel buttons for mobile
+	.carousel  .carouselButtons{
+		display: none;
+	}
+
+
+	// Show only the controls - and have them absolutely positioned at the top
+	ul.carouselControls{
+		display: block;
+		li a{
+			margin-top: 0;
+			top: 20px;
+			bottom: auto;
+		}
+	}
+
+}
+
+
+// ==========================
+// Carousel video play button
+// ==========================
+
+// base styles
+
+.showsVideo{
+	&:before{
+		background-color: transparent;
+		-ms-border-radius: 0;
+		-moz-border-radius: 0;
+		-o-border-radius: 0;
+		-webkit-border-radius: 0;
+		border-radius: 0;
+		font-size: 100px;
+		font-family: 'FontAwesome';
+		content: '\f144';
+
+		@media screen and (max-width: 480px){
+			width: 40px;
+			height: 40px;
+			font-size: 40px;
+			line-height: 40px;
+		}
+	}
+}
+
+
+// ==============
+// Video lightbox
+// ==============
+
+.videoPopUpWrapper{
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	@media (max-width: 992px){
+		width: 640px;
+		height: 360px;
+	}
+
+	@media (max-width: 768px){
+		width: 500px;
+		height: 281px;
+	}
+
+	@media (max-width: 540px){
+		width: 420px;
+		height: 236px;
+	}
+
+	@media (max-width: 480px){
+		width: 300px;
+		height: 169px;
+		padding: 10px;
+	}
+
+	@media (max-width: 360px){
+		width: 280px;
+		height: 158px;
+	}
+}
+
+.videoPopupClose{
+
+	top: -10px;
+	right: -10px;
+	line-height: 30px;
+	&:before{
+		width: 30px;
+		height: 30px;
+		margin: 0;
+		line-height: 30px;
+		content: '\f00d';
+		font-family: 'FontAwesome';
+		font-size: 18px;
+	}
+	&:hover{
+		text-decoration: none;
+		background-color: $primary-colour;
+		color: #fff;
+	}
+
+	@media (max-width: 540px){
+		top: -10px;
+		right: -10px;
+	}
+}

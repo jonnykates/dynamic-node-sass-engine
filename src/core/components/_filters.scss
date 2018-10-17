@@ -1,0 +1,140 @@
+// ================
+// Category filters
+// ================
+
+.categoryFilterWrapper {
+	margin: $site-container-padding*2 0;
+
+	h2, h3{
+		font-size: $default-body-font-size;
+		font-weight: 400;
+		margin-top: 0;
+	}
+}
+
+
+// =======
+// Filters
+// =======
+
+ul.listedFilters {
+
+	margin: 0;
+
+    &> li {
+	    background: transparent;
+	    padding: 0;
+	    height: auto;
+	    margin: 0 5px 5px 0;
+	    cursor: pointer;    
+    }
+
+    a.filter{
+    	margin-right: 0;
+	    &:hover{
+		    text-decoration: none;
+	    }
+    }
+
+}
+
+
+// ===============
+// Applied filters
+// ===============
+
+.appliedFilters {
+	
+	margin: $site-container-padding 0;
+	
+	h3{
+		
+		float: none;
+		margin: $default-body-font-size 0;
+	}
+
+	ul{
+		float: none;
+	}
+
+	li{
+		float: none;
+		display: inline-block;
+		margin: 0 5px 5px 0;
+		vertical-align: middle;
+	}
+
+	span.filter{
+		text-transform: capitalize;
+		margin: 0;
+		-moz-border-radius: $border-radius-size;
+		-webkit-border-radius: $border-radius-size;
+		border-radius: $border-radius-size;
+		line-height: inherit;
+
+		&:hover{
+			cursor: default;
+			background-color: $primary-colour;
+		}
+
+		a.remove,
+		a.remove:link{
+			position: inherit;
+			top: auto;
+			background-color: rgba(#000,0.3);
+			margin: 0 0 0 10px;
+			width: 23px;
+			height: 23px;
+		    border-radius: 50% 50% 50% 50%;
+		    display: inline-block;
+			&:before{
+				font-family: 'FontAwesome';
+				content: '\f00d';
+			}
+
+			&:hover{
+				background-color: rgba(#000,0.7);
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+// Multiple filters
+.categoryFilterContent .appliedFilters{
+	display: none;
+}
+
+// Combi filters
+.groupedFilters {
+    display: inline-block;
+    margin: 0 20px 10px 0;
+
+    .filter{
+    	background-color: rgba(#000,0.5);
+    }
+
+    input[type="checkbox"]{
+    	font-size: 1rem;
+    	width: 1rem;
+    	height: 1rem;
+    	margin-right: 5px;
+    }
+
+    input, span{
+    	vertical-align: middle;
+    }
+}
+
+
+@media (max-width: $mobile-breakpoint){
+	.combinedCategoryFilter .groupedFilters{
+		width: 100%;
+		float: none;
+		margin: 10px 0;
+		select{
+			width: 100%;
+		}
+	}
+}

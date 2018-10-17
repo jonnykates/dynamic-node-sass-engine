@@ -1,0 +1,111 @@
+// ==========
+// Accordions
+// ==========
+
+.faqListingPage{
+	article{
+		width: 100%;
+		flex-direction: column;
+		display: flex;
+	}
+}
+
+.accordianHeader {
+	padding: $site-container-padding;
+	margin-top: $site-container-padding;
+	position: relative;
+
+	h2{
+		font-size: $default-body-font-size;
+		margin-top: 0;
+	}
+
+	p.postSummary{
+		padding: $site-container-padding/2 0 0;
+	}
+
+	a.expand:link{
+		position: absolute;
+		top: $site-container-padding;
+		right: $site-container-padding;
+	}
+}
+
+.accordianHeaderText{
+	float: none;
+	width: 90%;
+}
+
+
+.accordianBody.contentBlockWrapper {
+	padding: $site-container-padding;
+	background-color: #fff;
+
+	.postFooterWrapper{
+		display: none;
+	}
+}
+
+
+// Toggle the arrow icon when accordion is open
+
+.accordianOpen{
+
+	a.expand:link{
+		&:before{
+			font-family: 'FontAwesome';
+			content: '\f106';
+		}
+	}
+}
+
+
+// =================
+// Expandable blocks
+// =================
+
+.post_collapseContent,
+.post_collapseTitle{
+	background-color: $border-color;
+	padding: $site-container-padding;
+}
+
+
+.post_collapseReadMore{
+
+	a{	
+		margin-right: 0;
+
+		&:hover{
+			text-decoration: none;
+		}
+		img{
+			display: none;
+		}
+
+		&:after{
+			padding-left: 10px;
+			font-family: 'FontAwesome';
+			content: '\f107';
+		}
+	}
+
+}
+
+@media (max-width: $mobile-breakpoint){
+
+	.accordianHeaderText{
+		width: calc(100% - 60px);
+	}
+
+	.post_collapseTitle,
+	.post_collapseReadMore{
+		float: none !important;
+		width: 100%;
+	}
+
+	.post_collapseReadMore a{
+		width: 100%;
+		text-align: center;
+	}
+}

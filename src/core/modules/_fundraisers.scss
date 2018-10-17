@@ -1,0 +1,183 @@
+// ===================
+// Fundraisers listing
+// ===================
+
+.fundraiserListingPage{
+
+	.fundraiserSearchResults{
+		float: left;
+		width: 100%;
+		.listContent{
+			float: none;
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	.postAside{
+		display: none;
+	}
+}
+
+.fundraiserSearchResults{
+	width: 100%;
+	.listedFundraiser{
+		margin: 0 2.5% 2.5% 0;
+		width: 22%;
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+		border-bottom: 0;
+
+		img{
+			margin-right: 0;
+			float: none;
+		}
+		.postFooterWrapper,
+		h3{
+			display: none;
+		}
+	}
+}
+
+.findAFundraiser{
+	max-width: $site-max-width;
+	padding: 0 $site-container-padding;
+	margin-top: 60px;
+
+	legend{
+		border-bottom: 0;
+	}
+
+	.findAFundraiserEvent{
+		margin-left: 0;
+		padding-left: 20px;
+	}
+	@media screen and (max-width: $mobile-breakpoint){
+		.formQuestion{
+			float: none;
+			width: 100%;
+			&.findAFundraiserEvent{
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+// Overwrite !important in baseframework.css - yeh it's dumb but what can we do
+#uploadifive-uploadifiveucFile,
+.uploadifive-button.commentAddImage{
+	background-color: $primary-colour !important;
+	@include text-contrast($primary-colour);
+	margin: 10px 0;
+
+	@media (max-width: 480px){
+		width: 100% !important;
+		margin: 10px 0;
+	}
+}
+
+.fundraiserBannerHint{
+	clear: both;
+	margin: 10px 0 20px 0;
+	font-size: 0.8em;
+}
+
+// ==========================
+// Individual fundraiser page
+// ==========================
+
+.fundraiserPostPage{
+
+	.contentBlockWrapper.appealActionsWrapper{
+		height: auto;
+		margin-bottom: 40px;
+	}
+
+	// Fundraiser comments
+	.appealCommentsWrapper .formWrapper,
+	.tabsWrapper{
+		display: none;
+	}
+
+	.postComments,
+	ul.commentsList{
+		border: 0;
+	}
+
+	ul.commentsList{
+		li.commentDonation:first-child{
+			border-top: 1px solid $border-color;
+			padding-top: 20px;
+		}
+	}
+}
+
+// =======================
+// Fundraiser sign up page
+// =======================
+
+#fundraiser-create-form{
+	.registerForm{
+		margin: 40px 0;
+		padding: 0;
+		legend{
+			background-color: #f3f3f3;
+			padding: 10px 20px;
+		}
+	}
+}
+
+
+// ========================
+// Fundraiser user settings
+// ========================
+
+.fundraiserDashWrapper{
+	
+	.accordianBody {
+		padding: 20px;
+	}
+
+	.shareList{
+		padding-left: 0;
+	}
+}
+
+
+
+
+
+@media (max-width: $mobile-breakpoint){
+
+	.fundraiserSearchResults{
+		.listedFundraiser{
+			width: 46.5%;
+		}
+	}
+
+	.fundraiserPostPage {
+		.contentBlock{
+			display: flex;
+			flex-direction: column;
+
+			.postAside{
+				order: 1;
+			}
+
+			.fundraiserContent{
+				order: 2;
+			}
+		}
+	}
+
+}
+
+@media (max-width: 480px){
+	.fundraiserSearchResults{
+		.listedFundraiser{
+			width: 100%;
+			margin: 0 0 20px 0;
+		}
+	}
+}

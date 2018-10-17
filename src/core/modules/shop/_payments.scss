@@ -1,0 +1,242 @@
+// =======
+// Payment
+// =======
+
+.paymentPage{
+
+	margin-bottom: 40px;
+
+	td{
+		padding: 10px 20px;
+	}
+
+	.paymentForm legend,
+	table caption h2{
+		text-align: center;
+	}
+}
+
+h3.vat,
+h2.total{
+	margin: 40px 0;
+	text-align: left;
+	font-size: $default-body-font-size * 2;
+}
+
+h3.vat{
+	color: rgba($main-font-colour,0.5);
+}
+
+
+.promoCode,
+.deliveryAmount{
+	margin-top: 40px;
+	margin-bottom: 0;
+
+	span{
+		font-size: $default-body-font-size;
+	}
+
+	h3,
+	label{
+		font-size: 1em;
+		font-weight: 400;
+		margin: 0;
+	}
+
+	.deliveryOptions{
+		width: auto;
+		min-width: 300px;
+	}
+
+	input{
+		width: auto;
+		min-width: 150px;
+		margin: 0;
+		float: right;
+	}
+
+	button#applyPromo{
+		float: right;
+		margin: 0 10px 0 0;
+	}
+}
+
+.registerWrapper,
+.paymentFormWrapper{
+	margin-top: 40px;
+}
+
+fieldset.registerForm,
+fieldset.delivery{
+	border: 2px solid #f3f3f3;
+	padding: 20px;
+
+	legend{
+		text-align: center;
+	}
+}
+
+fieldset#submit-button-wrapper{
+	text-align: center;
+}
+
+
+
+// hide 'continue shopping' button by default?
+.continueShoppingWrapper{
+	display: none;
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+	.paymentPage .basket{
+
+		.itemColumn{
+			min-width: 140px;
+		}
+		.quantityColumn, .priceColumn, .removeColumn{
+			min-width: 100px;
+			width: 15%;
+		}
+
+		.quantityColumn{
+			min-width: 140px;
+		}
+	}
+
+	h3.vat,
+	h2.total{
+		font-size: $default-body-font-size * 1.6;
+	}
+
+	.itemThumb{
+		float: none;
+		margin: 0;
+	}
+
+	.promoCode,
+	.deliveryAmount{
+		span,
+		h3,
+		label{
+			width: 100%;
+			float: none;
+			text-align: left;
+		}
+
+		.deliveryOptions{
+			width: 100%;
+			min-width: 100%;
+			float: none;
+		}
+
+		input{
+			width: 100%;
+			margin: 0;
+		}
+
+		button#applyPromo{
+			width: 100%;
+			margin: 5px 0 0;
+		}
+	}
+
+	.paymentFormWrapper,
+	.paymentEtc {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	button.postcodeLookUpBtn,
+	button.addressEnterBtn,
+	.registerButtons button.button{
+		width: 100%;
+		margin: 5px 0 0 0;
+	}
+}
+
+@media (max-width: 767px){
+
+	.paymentPage .basket table,
+	.eventContent table:not(.flexTable) {
+
+		overflow: visible;
+
+		thead{
+			display: none;
+		}
+
+		caption,
+		tbody{
+			width: 100%;
+			display: block;
+		}
+
+		tbody{
+			tr{
+				display: flex;
+				flex-direction: column;
+				border-bottom: 1px solid $border-color;
+				&:nth-child(odd),
+				&:nth-child(even){
+					background-color: transparent;
+				}
+			}
+
+			td,
+			td.removeColumn,
+			td.quantityColumn,
+			td.priceColumn,
+			td.itemColumn{
+				width: 100%;
+				padding-left: 50%;
+				position: relative;
+				text-align: left;
+				&:before{
+					display: block;
+					width: calc(50% - 20px);
+					position: absolute;
+					left: 10px;
+					font-weight: bold;
+				}
+				&:after{
+					width: 1px;
+					height: 100%;
+					position: absolute;
+					right: calc(50% + 20px);
+					top: 0;
+					background-color: $border-color;
+					display: block;
+					content: '';
+					visibility: visible;
+				}
+			}
+
+			.itemColumn:before{
+				content: 'Item';
+			}
+
+			.quantityColumn:before{
+				content: 'Quantity';
+			}
+
+			.priceColumn:before{
+				content: 'Price';
+			}
+
+			.removeColumn{
+				border-bottom: 1px solid $border-color;
+			}
+		}
+
+		td{
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+
+	.deliveryAmount label{
+		display: none;
+	}
+
+}

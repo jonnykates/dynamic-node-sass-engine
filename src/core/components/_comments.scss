@@ -1,0 +1,231 @@
+// ========
+// Comments
+// ========
+
+.postComments{
+	padding: 20px 0;
+	border-top: 1px solid $border-color;
+
+	header{
+		padding: 0;
+	}
+	
+	h3{
+		font-size: 18px;
+		margin: 0;
+		font-weight: 400;
+	}
+	.commentForm{
+		margin-top: 0;
+		.formQuestion{
+			label{
+				width: auto;
+
+				@media (max-width: 480px){
+					width: calc(100% - 30px);
+				}
+			}
+			textarea, input{
+				background-color: #f2f2f2;
+				border: 0;
+			}
+		}
+		.commentImageWrapper, .commentVideoWrapper{
+			width: 50%;
+			margin-top: 20px;
+			display: inline-block;
+			float: left;
+			@media screen and (max-width: 768px){
+				float: none;
+				width: 100%;
+				margin-top: 10px;
+			}
+		}
+		.commentImageWrapper{
+			.formQuestion{
+				margin-top: 0;
+			}
+			.commentAddImage{
+				background-color: $primary-colour !important;
+				color: #fff !important;
+				line-height: auto;
+			}
+		}
+		.commentVideoWrapper{
+			.addVideo{
+				width: 100%;
+			}
+		}
+		.commentNotify{
+			float: left;
+			width: 100%;
+			margin: 10px 0 20px 0;
+		}
+		button.addComment{
+			margin-top: 0;
+			float: left;
+		}
+	}
+}
+
+// ===============
+// Comments - view
+// ===============
+
+.commentsListWrapper{
+	margin-top: 40px;
+}
+
+ul.commentsList{
+	padding: 20px 0 0 0;
+	border-top: 1px solid $border-color;
+	li{
+		border-bottom: 0;
+		img{
+			margin-right: 20px;
+		}
+	}
+}
+
+.commentContentWrapper{
+	width: 85%;
+	float: right;
+	.commentContent{
+		background-color: #f2f2f2;
+		padding: 20px;
+		margin-bottom: 10px;
+
+		p{
+			margin: 0;
+		}
+	}
+}
+
+.commentDetails{
+	margin-top: 20px;
+	p{
+		font-size: 14px;
+	}
+	.helpfulComment{
+
+		// hide this for now because we have no idea what this does
+		display: none;
+
+		margin-top: 0;
+		legend{
+			float: none;
+			margin: 0 0 5px 0;
+			border-bottom: 0;
+		}
+	}
+}
+
+
+// ===============
+// Appeal comments
+// ===============
+
+.appealComments{
+	.postComments{
+		margin-top: 0;
+		padding: 40px 0;
+		border-top: 0;
+
+		.commentsListWrapper{
+			margin-top: 20px;
+		}
+	}
+}
+
+ul.commentsList li.commentDonation{
+	padding: 0 0 20px 0;
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid $border-color;
+	img{
+		display: none;
+	}
+
+	.commentDetails{
+		margin-top: 0;
+
+		p{
+			margin: 0;
+			&.commenterWrapper{
+				margin-bottom: 10px;
+				text-transform: uppercase;
+			}
+		}
+
+		strong{
+			font-weight: 400;
+		}
+
+		.commenterWrapper strong,
+		time span:nth-child(2){
+			display: none;
+		}
+	}
+
+	.commentContentWrapper{
+		width: 50%;
+		float: left;
+	}
+}
+
+.commentDonationAmount{
+	padding: 0;
+	margin: 0;
+	float: right;
+	background-color: transparent;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	font-size: $default-body-font-size * 1.7;
+}
+
+
+
+// ==========================
+// Sign in / Register prompts
+// ==========================
+
+.registerCommentsWrapper#registerComments,
+.signInCommentsWrapper#signInComments {
+	padding: 0;
+	background-color: transparent;
+	margin: 60px 0 0 0;
+	clear: both;
+	fieldset.registerForm {
+		padding: 0;
+		margin: 0 0 20px 0;
+		border: 0;
+		legend{
+			text-align: left;
+			font-size: $default-body-font-size * 1.2;
+			font-family: $body-font;
+			margin-bottom: 10px;
+		}
+	}
+
+	fieldset.signInForm{
+		padding: 0;
+		margin: 0 0 20px 0;
+		legend{
+			font-size: $default-body-font-size * 1.2;
+			font-family: $body-font;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+
+	ul.commentsList img{
+		display: none;
+	}
+
+	.commentContentWrapper{
+		float: none;
+		width: 100%;
+	}
+}

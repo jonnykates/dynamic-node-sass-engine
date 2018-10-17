@@ -1,0 +1,229 @@
+// =============
+// Feed settings
+// =============
+
+.homeFeeds{
+	display: block; //IE fallback
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	max-width: none;
+	padding: 0;
+}
+
+.homeFeed{
+	margin: 0;
+	width: 100%;
+	&:nth-child(4n+1){
+		clear: inherit;
+	}
+}
+
+
+// ==================
+// Feed Item settings
+// ==================
+
+.feedItem{
+
+	@include column-span(3);
+
+}
+
+
+// ===========
+// Feed styles
+// ===========
+
+.homeFeedsWrapper{
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+.feedsTitle{
+	background-color: transparent;
+	padding: 0;
+	margin-bottom: 1.5rem;
+	width: 100%;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	text-align: center;
+	@media screen and (max-width: 560px){
+		font-size: 1.75rem;
+	}
+}
+
+ul.feedList{
+	padding: 0 $site-container-padding;
+	width: 100%;
+	display: block; //IE fallback
+	display: flex;
+	flex-wrap: wrap;
+	max-width: $site-max-width;
+	margin: 0 auto;
+	background-color: transparent;
+
+	@include clearFix;
+}
+
+.homeFeed{
+	margin: 0;
+	padding: 6rem 0;
+}
+
+.homeFeedBox2 {
+	background-color: $grey;
+}
+
+
+// ================
+// Feed item styles
+// ================
+
+.feedItem{
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: transparent;
+
+	.home-feed-image-link {
+		display: block;
+		overflow: hidden;
+	}
+
+	.banner{
+		-webkit-backface-visibility: hidden;
+		transform: scale(1);
+		transition: transform 300ms ease;
+		margin-bottom: 0;
+	}
+
+	h3.feedTitle {
+		font-size: 1.375rem;
+		a {
+			position: relative;
+			display: inline;
+			color: $main-font-colour;
+			border-bottom: 3px solid transparent;
+		}
+	}
+
+
+	h3.feedTitle,
+	p {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	&:hover {
+		h3.feedTitle a {
+			text-decoration: none;
+			border-bottom-color: $primary-colour;
+		}
+
+		.banner{
+			transform: scale(1.2);
+			transition: transform 300ms ease;
+		}
+	}
+
+	// hide the Read More button?
+	.readMore{
+		display: none;
+	}
+}
+
+
+// ===================================================
+// Events feed - hide all non-important footer content
+// ===================================================
+
+.homeFeedevents {
+
+	.postFooterWrapper{
+		clear: both;
+		padding: 0 2rem;
+
+		.postFooter{
+			padding: 0;
+			border: 0;
+			margin: 0;
+		}
+
+		p{
+			display: block;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+		}
+
+		p.associatedStartDate {
+			display: block;
+			font-weight: 700;
+			strong {
+				width: 16px;
+				height: 21px;
+				display: inline-flex;
+				overflow: hidden;
+				margin-right: 5px;
+				&:before {
+					width: 20px;
+					height: 20px;
+					font-family: 'FontAwesome';
+					content: '\f073';
+					font-size: 1rem;
+					display: block;
+				}
+			}
+
+			time span:last-of-type {
+				display: none;
+			}
+		}
+
+		// hide information we don't need
+		.publishDetailsWrapper,
+		.relatedWrapper,
+		.shareWrapper,
+		.locationDetails{
+			display: none;
+		}
+	}
+}
+
+// Twitter feed
+
+.tweet{
+	margin: $gutter-width 0;
+	img{
+		display: none;
+	}
+}
+
+.tweetDate{
+	display: block;
+	width: 100%;
+	font-size: $default-body-font-size * 0.9;
+}
+
+.feedActionWrapper{
+	padding: 0;
+}
+
+
+@media screen and (max-width: $mobile-breakpoint){
+	.feedItem,
+	.homeFeed{
+		width: 100%;
+		float: none;
+		margin-right: 0;
+	}
+
+	.feedItem{
+		margin-bottom: 4rem;
+		flex-direction: column;
+		.home-feed-image-link {
+			width: 100%;
+		}
+	}
+}

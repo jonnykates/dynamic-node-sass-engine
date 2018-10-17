@@ -1,0 +1,56 @@
+// ====
+// Shop
+// ====
+
+.departments{
+	display: none;
+	// width: 33.33333%;
+	// padding-right: 60px;
+
+	// h2{
+	// 	margin-top: 0;
+	// }
+}
+
+
+//=================
+// Departments menu
+//=================
+
+// ul.departmentList{
+// 	&>li{
+// 		margin-top: 40px;
+//  			a{
+// 			background-color: #e2e2e2;
+// 			color: #333;
+// 			text-transform: uppercase;
+// 			&:hover{
+// 				background-color: darken(#e2e2e2, 5%);
+// 				text-decoration: none;
+// 			}
+// 		}
+// 	}
+// 	ul.secondLevel{
+// 		li a{
+// 			text-transform: inherit;
+// 			background-color: #f2f2f2;
+// 			&:hover{
+// 				background-color: darken(#f2f2f2,5%);
+// 			}
+// 		}
+// 	}
+// }
+
+
+// @media screen and (max-width: $mobile-breakpoint){
+	
+// 	.departments{
+// 		width: 100%;
+// 		float: none;
+// 		padding-right: 0;
+// 	}
+
+// }
+
+@import 'products';
+@import 'payments';

@@ -1,0 +1,218 @@
+// ======
+// Header
+// ======
+
+$header-background-colour: transparent;
+
+$admin-menu-bg-colour: $primary-colour;
+
+
+header#pageHeader{
+    position: relative;
+    background-color: $header-background-colour;
+    top: auto;
+    z-index: 2;
+    .headerContent {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 95%;
+    }
+}
+
+// ===========
+// Main logo
+// ===========
+
+.mainLogo{
+    margin: 2rem 0;
+    background-image: url($site-url + $logo-url);
+    background-size: contain;
+    width: 200px;
+    height: 100px;
+}
+
+// ==========
+// Admin menu
+// ==========
+
+.menuAdminContainer{
+    background-color: $admin-menu-bg-colour;
+    height: auto;
+    ul#menuAdmin{
+        max-width: $site-max-width;
+        width: 100%;
+        height: 45px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+//============
+// Manager bar
+//===========
+
+.adminBar, .adminBarEdit{
+    font-size: 0.85em;
+    padding: 10px 20px;
+}
+
+
+// ===========
+// Header social icons
+// ===========
+
+.mainCallToAction{
+    margin: 20px 0 20px 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    ul.socialIcons,
+    a.cta-button{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    ul.socialIcons{
+        margin-right: 20px;
+    }
+
+    a.cta-button{
+        margin-right: 0;
+        margin-left: 1rem;
+    }
+
+    a.button-alt {
+        margin: 0;
+        &:hover {
+            color: $main-font-colour;
+        }
+    }
+
+    .tagline{
+        flex: 1;
+        margin: 0;
+        margin-right: 20px;
+        font-size: 1.25rem;
+        color: $main-font-colour;
+        font-weight: 700;
+        margin-left: 2rem;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
+
+.headerFollowContainer{
+    display: none;
+}
+
+
+// Homepage specific header
+
+@media (min-width: $mobile-breakpoint + 1){
+    .homepage{
+        header#pageHeader{
+            position: absolute;
+            background-color: transparent;
+        }
+
+         .mainCallToAction{
+
+            .tagline{
+                color: #fff;
+            }
+
+            a.button-alt {
+                color: #fff;
+                &:hover{
+                    color: $main-font-colour;
+                }
+            }
+        }
+
+        .menuMainAlt{
+            color: #fff;
+        }
+    }
+}
+
+
+.cc-cookies{
+    width: 100%;
+    background-color: rgba(#000,0.8);
+    text-shadow: none;
+}
+
+
+@media screen and (max-width: $mobile-menu-breakpoint){
+
+    header .headerContent {
+        .mainCallToAction {
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            .tagline {
+                display: none;
+            }
+        }
+    }
+
+    .mainCallToAction{
+        .tagline,
+        a.cta-button {
+            color: $secondary-colour;
+        }
+    }
+
+    .cc-cookies {
+        position: fixed;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    header#pageHeader .headerContent {
+        align-items: flex-start;
+        .mainCallToAction {
+            margin: 1rem 0 0;
+            a.cta-button:not(.cta-donate) {
+                display: none;
+            }
+        }
+    }
+
+    .mainLogo {
+        width: 114px;
+        height: 72px;
+        margin: 1rem 0;
+    }
+
+}
+
+
+@media (max-width: 480px){
+
+    .mainCallToAction {
+        a.cta-button {
+            width: auto;
+            display: none;
+            margin-top: 0;
+        }
+        a.cta-donate {
+            display: block;
+        }
+    }
+
+    .searchContainer{
+        button{
+            margin: 0;
+        }
+    }
+
+}
+
+@import 'headerSideMenu';
+//@import 'headerTransparent';

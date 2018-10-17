@@ -1,0 +1,64 @@
+$transition-duration: 300ms !default;
+$transition-curve: ease-in-out !default;
+
+@if $hover-effect == "colour-fade"{
+
+	.homeFeature,
+	.feedItem,
+	.listedPost,
+	.associated{
+		.home-feature-image-link,
+		.home-feed-image-link,
+		.listed-post-image-link,
+		&>a{
+			display: block;
+			background-color: $primary-colour;
+		}
+
+		img.banner {
+			opacity: 1;
+			transition: opacity $transition-duration $transition-curve;
+			backface-visibility: hidden;
+			margin: 0;
+
+			@supports (object-fit: cover) {
+				object-fit: cover;
+			}
+		}
+		&:hover{
+			img.banner{
+				opacity: 0.4;
+			}
+		}
+	}
+}
+
+@if $hover-effect == "image-scale"{
+	.homeFeature,
+	.feedItem,
+	.listedPost,
+	.associated{
+		.home-feature-image-link,
+		.home-feed-image-link,
+		.listed-post-image-link,
+		&>a {
+			overflow: hidden;
+			display: block;
+		}
+
+		img.banner {
+			transform: scale(1);
+			transition: transform $transition-duration $transition-curve;
+			margin: 0;
+
+			@supports (object-fit: cover) {
+				object-fit: cover;
+			}
+		}
+		&:hover{
+			img.banner{
+				transform: scale(1.2);
+			}
+		}
+	}
+}

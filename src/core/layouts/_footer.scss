@@ -1,0 +1,167 @@
+// ======
+// Footer
+// ======
+
+$footer-bg-colour: $grey;
+$footer-text-colour: $main-font-colour;
+
+
+// ==============
+// Footer columns
+// ==============
+
+.footerBox{
+
+	@include column-span(4);
+	flex-direction: column;
+
+	&.Footercredits{
+		@include column-span(1);
+	}
+}
+
+
+// ======
+// Footer
+// ======
+
+.pageFooterWrapper{
+	border-top: 0;
+	background-color: $footer-bg-colour;
+}
+
+.pageFooter{
+	display: block;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: none;
+	padding: 0;
+	justify-content: center;
+}
+
+.footerBox{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0 3rem 0 2rem;
+	font-size: 0.875rem;
+
+	h1, h2, h3{
+		margin-top: 0;
+		font-size: 1.375rem;
+		color: $footer-text-colour;
+	}
+
+	ul, ol{
+		li{
+			list-style: none;
+			color: $footer-text-colour;
+			margin-right: 5px;
+		}
+	}
+
+	p, a{
+		color: $footer-text-colour;
+		font-size: 0.875rem;
+	}
+
+	form.header-search {
+		position: relative;
+		max-width: 200px;
+		#siteSearch {
+			background-color: #fff;
+			color: $main-font-colour;
+		}
+		button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: transparent;
+			margin: 0;
+			&:before {
+				color: $black;
+			}
+		}
+	}
+
+}
+
+
+.footerLinks {
+	margin: 0;
+	width: 100%;
+}
+
+.Footercredits{
+	text-align: center;
+	font-size: 0.75rem;
+	margin: 4rem 0 2rem 0;
+	max-width: none;
+	p {
+		font-size: 0.75rem;
+	}
+	ul li{
+		display: inline-block;
+		padding: 0 10px 0 0;
+	}
+	.socialIcons{
+		margin: 20px 0;
+	}
+}
+
+// ==============
+// Footer Twitter
+// ==============
+
+.footerTwitter{
+
+	// hide this by default
+	display: none;
+
+	ul{
+		margin-bottom: 0;
+		li{
+			margin: 20px 0;
+			p{
+				margin-bottom: 5px;
+			}
+			time, cite{
+				font-size: 13px;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+.adminLinks .menuAdminRegister{
+	display: none;
+}
+
+
+@media screen and (max-width: $mobile-breakpoint){
+	.footerBox {
+		max-width: none;
+		@include column-span(2);
+		margin: 0 0 40px 0;
+		padding: 0 20px;
+	}
+}
+
+@media (max-width: 767px){
+
+	.pageFooter {
+		flex-direction: column;
+	}
+
+	.footerTwitter, .footerBox{
+		width: 100%;
+		max-width: none;
+		float: none;
+		text-align: center;
+		display: block;
+	}
+
+	.footerBox form.header-search{
+		margin: 0 auto;
+	}
+}

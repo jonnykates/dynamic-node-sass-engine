@@ -1,0 +1,308 @@
+// ===========
+// Donate page
+// ===========
+
+body.donate{
+	.formWrapper {
+		max-width: none;
+		padding: 0;
+		.carousel,
+		.headerText,
+		.contentBlockWrapper{
+			padding: 0; /* remove padding on these elements as padding is applied to formWrapper in scaffolding.scss */
+		}
+		.headerText {
+			padding-left: $site-container-padding;
+			padding-right: $site-container-padding;
+		}
+	}
+}
+
+.donationForm{
+	max-width: $site-max-width;
+	width: 100%;
+	margin: 40px auto;
+	padding-left: $site-container-padding;
+	padding-right: $site-container-padding;
+
+	.supportedAppeal,
+	.appealTotaliser{
+		width: 260px;
+		padding: 0;
+		margin: 30px 0 0;
+		img{
+			// hide this image, because why repeat the banner image?!?! it makes no sense.
+			display: none;
+			//max-width: 100%;
+		}
+
+		.totaliserPanel .raisedWrapper,
+		.totaliserPanel .targetWrapper{
+			width: calc(100% - 80px);
+		}
+
+		.raisedWrapper{
+			margin-top: 0;
+			margin-bottom: 15px;
+		}
+
+	}
+
+	@include clearFix;
+}
+
+.donationFormItems{
+	width: calc(100% - 260px);
+	max-width: none;
+	margin: 0 0 50px;
+	padding-right: 80px;
+}
+
+
+// ================
+// Donation amounts
+// ================
+
+.donationAmount{
+
+	input[type="radio"]{
+			margin-right: 30px;
+	    top: 50%;
+	    font-size: 20px;
+	    margin-top: -10px;
+	    line-height: 1;
+		}
+
+	.checkboxRadio{
+		display: block;
+	}
+
+	.donationAmountFigure{
+		min-width: 160px;
+		padding: 0 20px;
+		font-size: $default-body-font-size * 2;
+		text-align: center;
+		border-right: 1px solid #fff;
+	}
+
+	span.donationAmountDescription{
+		width: calc(100% - 320px);
+		display: inline-block;
+	}
+
+	&.donationAmountOther{
+
+    @if $heading-uppercase == true {
+      text-transform: uppercase;
+    }
+
+		.donationAmountFigure{
+			float: left;
+			width: 100%;
+		}
+		input#donationAmountOther{
+			margin: 0 0 0 20px;
+		}
+	}
+}
+
+.donationFrequency {
+  background-color: #f3f3f3;
+  padding: 20px;
+
+  label {
+    font-size: $default-body-font-size * 2;
+    width: auto;
+    text-align: left;
+
+    @if $heading-uppercase == true {
+      text-transform: uppercase;
+    }
+	}
+
+	input#monthly {
+    float: right;
+    margin: 5px;
+	}
+	.regularPayment{
+		margin-top:5px;
+	}
+}
+
+.donationAmount.donationSelected,
+.donationFrequency.frequencySelected{
+	background-color: $primary-colour;
+	color: #fff;
+}
+
+.formQuestion.donationDate select,
+.formQuestion.donationPeriod select{
+	width: 100%;
+}
+
+
+
+// =======
+// GiftAid
+// =======
+
+.donationGiftAid{
+
+	.checkboxRadio{
+		margin: 0;
+		padding: 75px 0 30px 50px;
+		display: block;
+		width: 100%;
+	}
+
+	input{
+		margin: 2px 0 0;
+		float: left;
+	}
+
+	.giftAidStatement{
+		margin: 0 0 30px 30px;
+		font-size: $default-body-font-size * 0.85;
+	}
+}
+
+
+
+// =======
+// Sign in
+// =======
+
+.signInWrapper{
+	padding: 20px;
+	position: relative;
+	h2{
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+
+	p{
+		float: none;
+		margin: 0;
+	}
+
+	a.expand,
+	a.expand:link{
+		float: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 20px 20px 0 0;
+		background-color: $primary-colour;
+		@include text-contrast($primary-colour);
+	}
+
+	.signInArea{
+		.signInForm{
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+.termsConditionsDetails{
+	background-color: transparent;
+	font-size: $default-body-font-size;
+	padding: 20px 0;
+}
+
+
+@media only screen and (max-width: $mobile-breakpoint){
+
+	.donationForm{
+
+		.appealTotaliser,
+		.supportedAppeal{
+			display: none;
+		}
+
+		.supportedAppeal{
+			img{
+				display: block;
+				margin: 0 auto;
+			}
+		}
+
+	}
+
+	.donationFormItems{
+		width:100%;
+		padding:0;
+	}
+
+	.donationAmount{
+		text-align: center;
+		padding: 20px;
+		input[type="radio"]{
+			margin:0;
+			position: relative;
+			top:auto;
+		}
+
+		.donationAmountFigure,
+		span.donationAmountDescription,
+		.donationAmountThumbnail,
+		.donationAmountOther{
+			width: 100%;
+			margin: 10px 0;
+			padding: 0;
+			text-align: center;
+			border: 0;
+		}
+
+		.donationAmountFigure{
+			font-size: $default-body-font-size * 1.4;
+		}
+
+		&.donationAmountOther{
+			label{
+				width: 100%;
+				float: none;
+				strong{
+					text-align: center;
+        }
+			}
+			input#donationAmountOther{
+				margin: 0;
+				width: 90%;
+			}
+		}
+	}
+
+	.donationFrequency label{
+		width: 80%;
+		font-size: $default-body-font-size * 1.4;
+	}
+
+	a.facebookPopulate,
+	a.signIn{
+		width: 100%;
+		margin: 5px 0 0;
+	}
+
+}
+
+
+@media only screen and (max-width: 540px){
+
+	.donationForm{
+		.formQuestion .checkboxRadio,
+		.formQuestion .checkboxRadio span,
+		.formQuestion span span {
+			margin-right:0;
+		}
+	}
+
+	.cardEndDate input {
+    	max-width: 100px;
+	}
+
+	.giftAidStatement {
+	    float: none;
+	    width: auto;
+	}
+}

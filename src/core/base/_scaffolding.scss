@@ -1,0 +1,48 @@
+.pageHeader	.headerContent,
+.homeIntroWrapper,
+.homeFeatures,
+.homeFeeds,
+.headerText,
+.contentBlockWrapper,
+.searchListingIntro,
+.menuSub ul,
+//header .carousel,
+.signInForm,
+.registerForm,
+.customForm,
+.passwordForm,
+#pnlCustom404,
+.formWrapper,
+.contentBlockWrapper.appealActionsWrapper,
+.appealActionsWrapper,
+.pageFooter,
+.donorsList{
+	max-width: $site-max-width;
+	padding-left: $site-container-padding;
+	padding-right: $site-container-padding;
+}
+
+.appealActionsWrapper{
+	margin: 0 auto;
+}
+
+#pnlCustom404{
+	margin: 40px auto 0 auto;
+}
+
+
+
+// ==============
+// Padding resets
+// ==============
+.formWrapper.contactForm,
+.contentBlockWrapper.contactUsBody{
+	padding: 0;
+}
+
+
+@media (max-width: $mobile-breakpoint){
+	.contactUsIntro {
+		padding : 0;
+	}
+}

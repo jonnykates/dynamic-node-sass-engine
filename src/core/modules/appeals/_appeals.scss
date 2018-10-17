@@ -1,0 +1,211 @@
+// =======
+// Appeals
+// =======
+
+.contentBlockWrapper.appealActionsWrapper, .appealActionsWrapper{
+	height: 0;
+	.contentBlock{
+		width: auto;
+		height: 0;
+	}
+	.appealActions{
+		max-width: 100%;
+		margin: 20px 0 40px 0;
+
+		a.button,
+		a.button:link{
+			width: 100%;
+			margin: 0 0 5px 0;
+		}
+	}
+}
+
+.topFundraisersWrapper{
+	// hide this
+	display: none;
+
+	margin-top: 20px;
+	font-size: $default-body-font-size;
+	margin-bottom: 20px;
+	ol {
+		padding-left: 0;
+		li{
+			width: 49%;
+			display: inline-block;
+		}
+	}
+}
+
+// Appeal widgets
+.appealWidgets {
+
+	.findAFundraiserWidget{
+		display: none;
+
+		.fundraiserProfilePics{
+			li{
+				float: none;
+				display: inline-block;
+				margin: 0 10px 10px 0;
+			}
+		}
+	}
+}
+
+.appealFooter{
+	.totaliserPanel{
+		display: none;
+	}
+}
+
+
+.appealInteractions{
+	margin-top: $gutter-width*2;
+}
+
+
+// ================
+// Appeals listings
+// ================
+
+.listedAppeal {
+
+	border-bottom: 0;
+	
+	h2{
+		margin-top: 0;
+		font-size: 24px;
+	}
+
+	.totaliserFigure{
+		font-size: 18px;
+	}
+
+	.topFundraisersWrapper ol li{
+		width: 100%;
+	}
+}
+
+// ========================================
+// Donors List - "Help fund our vital work"
+// ========================================
+
+.donorsList{
+	margin-top: 40px;
+	margin-bottom: 80px;
+	h2, &>span{
+		display: inline;
+		font-size: $default-body-font-size * 1.25;
+	}
+
+	span{
+		float:  none;
+		width: auto;
+		margin: 0;
+		padding-left: 10px;
+	}
+
+	img{
+		margin: 0;
+	}
+
+	ul{
+		@include clearFix;
+
+		li{
+			display: none;
+			width: 25%;
+			margin: 20px 0 0 0;
+			padding: 20px 40px 0 0;
+			border-top: 1px solid $border-color;
+
+			&:last-child{
+				border-right: 0;
+			}
+
+			// show only 4 latest donations
+			&:nth-child(-n+4){
+				display: block;
+			}
+
+			@media (max-width: 1024px){
+				width: 100%;
+				padding-right: 0;
+			}
+		}
+	}
+
+	.donorDetails{
+		float: right;
+		width: calc(100% - 60px);
+		padding-left: 20px;
+		span{
+			padding: 0 ;
+			display: block;
+			font-size: $default-body-font-size * 1.25;
+		}
+		
+		h3,h4{
+			margin-top: 10px;
+			font-size: $default-body-font-size * 0.85;
+			font-weight: inherit;
+		}
+
+		h4{
+			text-transform: uppercase;
+		}
+	}
+}
+
+
+@media (max-width: $mobile-breakpoint){
+
+	// make the sidebar appear before content on mobile. We can only do this flexbox.
+	.appealPostPage{
+		.contentBlock{
+			display: flex;
+			flex-direction: column;
+
+			.postAside{
+				order: 1;
+			}
+
+			.appealContent{
+				order: 2;
+			}
+		}
+	}
+
+	.contentBlockWrapper.appealActionsWrapper, .appealActionsWrapper{
+		height: auto;
+		.contentBlock{
+			height: auto;
+		}
+
+		.appealActions{
+			margin: 20px 0;
+			text-align: center;
+			a.button,
+			a.button:link{
+				width: calc(50% - 20px);
+				margin: 0 5px;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 480px){
+	.contentBlockWrapper.appealActionsWrapper, .appealActionsWrapper{
+		.appealActions{
+			margin: 0;
+			a.button,
+			a.button:link{
+				width: 100%;
+				margin: 0 0 5px 0;
+			}
+		}
+	}
+}
+
+@import '_inmemory';

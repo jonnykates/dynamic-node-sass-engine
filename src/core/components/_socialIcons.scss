@@ -1,0 +1,110 @@
+// ============
+// Social icons
+// ============
+
+$facebook-button-colour: $primary-colour;
+$twitter-button-colour: $primary-colour;
+$youtube-button-colour: $primary-colour;
+$instagram-button-colour: $primary-colour;
+$linkedin-button-colour: $primary-colour;
+
+
+// ============
+// Social icons
+// ============
+
+ul.socialIcons,
+ul.shareList{
+  margin-bottom: 0;
+  li{
+    display: inline-block;
+    a{
+      width: 40px;
+      height: 40px;
+      display: block;
+      overflow: hidden;
+      font-size: inherit;
+      background-color: $primary-colour;
+      &:hover{
+        text-decoration: none;
+        background-color: darken($primary-colour, 10%);
+      }
+      &:before{
+        font-size: 1rem;
+        vertical-align: middle;
+        @include text-contrast($primary-colour);
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        display: block;
+        -webkit-font-smoothing: antialiased;
+        font-family: 'FontAwesome';
+        font-weight: 400; // Don't ever want these bold
+      }
+
+      &.search:before {
+        content: '\f002';
+      }
+
+      &[href*="facebook"],
+      &.facebook{
+        &:before{
+          content: '\f09a';
+        }
+      }
+
+      &[href*="twitter"],
+      &.twitter{
+        &:before{
+          content: '\f099';
+        }
+      }
+
+      &[href*="youtube"],
+      &.youtube{
+        &:before{
+          content: '\f167';
+        }
+      }
+
+      &[href*="instagram"],
+      &.instagram{
+        &:before{
+          content: '\f16d';
+        }
+      }
+
+      &[href*="linkedin"],
+      &.linkedin{
+        &:before{
+          content: '\f0e1';
+        }
+      }
+
+      &[href*="flickr"],
+      &.flickr{
+        &:before{
+          content: '\f16e';
+        }
+      }
+    }
+  }
+}
+
+// ==================
+// Page sharing icons
+// ==================
+
+ ul.shareList{
+  li{
+    margin-right: 0;
+  }
+  a.shareEmail:before{
+    background-color: $primary-colour;
+    content: '\f003';
+    &:hover {
+    	background-color: darken($primary-colour, 10%);
+    }
+  }
+ }

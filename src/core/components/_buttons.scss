@@ -1,0 +1,25 @@
+// Core button styles/settings
+
+.button,
+a.button:link,
+a.button:visited,
+.commentAddImage,
+button,
+#totaliserActions .buttonDonate,
+#totaliserActions .buttonFundraise,
+.commentAddImage,
+.button.ghostContinue,
+.readMore,
+a.addToCalender,
+.post_collapseReadMore a,
+.listedFilters a.filter,
+.appliedFilters span.filter,
+.groupedFilters .filter,
+a.cta-button {
+  border-radius: $border-radius-size;
+  font-family: $button-font;
+
+  @if $button-uppercase == true {
+    text-transform: uppercase;
+  }
+}

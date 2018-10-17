@@ -1,0 +1,39 @@
+// ==============
+// Columns widths
+// ==============
+
+@mixin column-span($column-span, $gutter-width: $gutter-width) {
+
+	@if $column-span == 1 {
+		width: 100%;
+		margin-right: 0;
+		float: none;
+		display: block;
+	}
+
+	@else {
+		margin-left: 0;
+
+		$column-width: percentage(1/$column-span);
+		$column-gutters: ($column-span - 1) / $column-span;
+		$column-gutter-width: $gutter-width * $column-gutters;
+
+		width: calc( #{$column-width} - #{$column-gutter-width} );
+
+		margin-right: $gutter-width;
+		float: left; //IE fallback
+		display: block; //IE fallback
+		align-content: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+
+		&:nth-of-type(#{$column-span}n),
+		&:last-child{
+			margin-right: 0;
+		}
+
+		// &:nth-of-type(#{$column-span}n + 1){
+		// 	clear: both;
+		// }
+	}
+}

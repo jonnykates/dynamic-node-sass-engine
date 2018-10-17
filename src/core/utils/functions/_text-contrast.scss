@@ -1,0 +1,44 @@
+// These helpers can check whether a colour passes accessibility contrast levels based on guidelines by the W3C: https://www.w3.org/TR/AERT/#color-contrast
+// Read more here:
+// http://www.davidhalford.com/thoughts/2013/auto-contrasting-text/
+
+@mixin text-contrast($n) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
+  @if ($text-contrast-override) {
+    color: $text-contrast-override; // If you want to override this maths, then set this value to the text colour you want
+  } @else {
+    @if abs($color-brightness) < ($light-color/2){
+      color: white;
+    }
+    @else {
+      color: black;
+    }
+  }
+}
+
+@function text-contrast-bool($n) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
+  @if abs($color-brightness) < ($light-color/2){
+    @return "white";
+  }
+  @else {
+    @return "black";
+  }
+}
+
+@function contrast-checker($foreground, $background: #ffffff) {
+  $r: (max(red($foreground), red($background))) - (min(red($foreground), red($background)));
+  $g: (max(green($foreground), green($background))) - (min(green($foreground), green($background)));
+  $b: (max(blue($foreground), blue($background))) - (min(blue($foreground), blue($background)));
+  $sum-rgb: $r + $g + $b;
+
+  @if $sum-rgb < 500 {
+    @return "false";
+  } @else {
+    @return "true";
+  }
+}

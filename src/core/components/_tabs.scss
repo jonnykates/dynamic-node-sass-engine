@@ -1,0 +1,160 @@
+// =========
+// Tabs menu
+// =========
+
+.tabsWrapper{
+	border-bottom: 0;
+	.tabs{
+		max-width: $site-max-width;
+		padding-left: $site-container-padding;
+		padding-right: $site-container-padding;
+		li{
+			a{
+				border-bottom: 3px solid $border-color;
+				background-color: transparent;
+				padding: 10px 0;
+				border-radius: 0;
+				color: $main-font-colour;
+				&:hover{
+					background-color: transparent;
+					text-decoration: none;
+					color: $primary-colour;
+					border-bottom-color: $primary-colour;
+				}
+			}
+			&.active{
+				a{
+					color: $primary-colour;
+					border-bottom-color: $primary-colour;
+				}
+			}
+		}
+	}
+}
+
+// ==============
+// Tabbed content
+// ==============
+
+.tabbedListing{
+	width: 100%;
+	max-width: $site-max-width;
+	margin: 0 auto;
+	border: 0;
+	margin-bottom: 60px;
+	padding: 40px 20px;
+
+	.headerWrapper .headerContent {
+		padding: 0;
+		margin: 0;
+		max-width: 100%;
+	}
+	.contentBlockWrapper {
+		margin-top: 0;
+		padding: 0
+	}
+	.findAFundraiser{
+		margin-top: 0;
+		padding: 0;
+		width: 100%;
+		legend{
+			border-bottom: 0;
+		}
+	}
+
+	.listContent{
+		width: 100%;
+		padding: 0;
+	}
+
+	&.currentProjectsListing{
+		.listContent{
+			width: 100%;
+			//padding-right: 60px;
+		}
+
+		aside{
+			h3{
+				margin-top: 0;
+			}
+		}
+	}
+	.fundraiserSearchResults{
+		margin-top: 80px;
+	}
+}
+
+@if $heading-uppercase == true {
+  .tab {
+    text-transform: uppercase;
+  }
+}
+
+// =========================
+// Comment and donation tabs
+// =========================
+
+.appealInteractionsWrapper{
+	.tabs{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.appealFundraisersWrapper{
+	padding-left: 0;
+	padding-right: 0;
+	.findAFundraiser{
+		padding: 0;
+	}
+}
+
+
+@media screen and (max-width: $mobile-breakpoint){
+
+	.tabsWrapper{
+		.tabs{
+			padding: 0 20px;
+			li{
+				margin-right: 1px;
+				a{
+					padding-left: 5px;
+					padding-right: 5px;
+				}
+			}
+		}
+	}
+
+	.appealInteractionsWrapper .tabs{
+		padding: 0;
+	}
+
+	.tabbedListing{
+		&.currentProjectsListing{
+			.listContent, aside, .listedPost{
+				width: 100%;
+				float: none;
+				padding: 0;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+
+		.findAFundraiser{
+			.formQuestion{
+				width: 100%;
+				float: none;
+			}
+			.findAFundraiserEvent{
+				margin-left: 0;
+			}
+
+			.fundraiserSearchBtn, .findAFundraiserBtn{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+		}
+	}
+}

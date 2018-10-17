@@ -1,0 +1,8 @@
+// Global nav settings
+
+@if $navigation-uppercase == true {
+  ul.topLevel,
+  .menuAdminContainer ul#menuAdmin {
+    text-transform: uppercase;
+  }
+}

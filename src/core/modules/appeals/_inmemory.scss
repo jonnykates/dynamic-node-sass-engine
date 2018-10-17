@@ -1,0 +1,146 @@
+// ======================
+// In Memory listing page
+// ======================
+
+.inMemoryListingPage{
+
+	.listContent{
+		float: left;
+		width: 66.666%;
+	}
+
+	.listing .postAside{
+		display: block;
+		width: 33.333%;
+		margin-top: 40px;
+		padding: 0 0 0 60px;
+	}
+}
+
+// create an in memory page button
+.createInMemBtn{
+	width: 100%;
+}
+
+.formQuestion.findAMemorialName{
+	width: 100%;
+}
+
+.findAMemorial{
+	margin-top: 40px;
+	max-width: 600px;
+	background-color: #f2f2f2;
+	padding: 20px;
+
+	.findAMemorialBtn{
+		margin-top: 10px;
+	}
+
+	&+ h2{
+		font-weight: 400;
+		margin: 80px 0 20px 0;
+	}
+}
+
+
+#memorialArea{
+
+	@include clearFix;
+
+	.listedInMemory h2{
+		font-size: $default-body-font-size * 1.5;
+	}
+
+	.listedPost.listedInMemory:first-child{
+		margin-top: 0;
+	}
+}
+
+.life{
+	font-size: inherit;
+	color: lighten($main-font-colour,25%);
+	display: block;
+	margin: 20px 0;
+}
+
+
+
+// =========================
+// Individual In Memory page
+// =========================
+
+.inMemPostPage{
+
+	article{
+		width: 100%;
+		max-width: 720px;
+	}
+	.carousel{
+		margin-top: 20px;
+	}
+}
+
+.inMemContent{
+	padding: 0;
+	width: 100%;
+	text-align: center;
+	
+	.appealActions{
+		margin: 40px auto;
+		float: none;
+		a.button{
+			width: calc(50% - 10px);
+			margin: 0 5px;
+		}
+	}
+
+	.appealInteractionsWrapper{
+		margin-top: $gutter-width * 5;
+		text-align: left;
+
+		#makeComment{
+			text-align: left;
+		}
+	}
+}
+
+
+
+
+@media (max-width: $mobile-breakpoint){
+
+	.inMemoryListingPage{
+
+			.listContent,
+			.listing .postAside{
+				width: 100%;
+				float: none;
+				padding: 0;
+			}
+	}
+
+	.findAMemorial{
+		max-width: 100%;
+	}
+
+	.inMemPostPage{
+		.carousel{
+			margin-top: 0;
+		}
+		article{
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 480px){
+
+	.inMemContent{
+		.appealActions{
+			a.button{
+				width: 100%;
+				margin: 5px 0;
+			}
+		}
+	}
+}

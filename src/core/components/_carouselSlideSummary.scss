@@ -1,0 +1,11 @@
+// Can toggle carousel slide summary on or off with $show-carousel-summary-text
+
+@if $show-carousel-summary-text == false {
+  .carouselSlideSummary {
+    display: none;
+  }
+
+  .carouselSlideHeading {
+    margin-bottom: 0;
+  }
+}

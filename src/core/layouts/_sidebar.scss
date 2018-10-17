@@ -1,0 +1,88 @@
+//==============
+// Posts sidebar
+//==============
+
+$number-of-posts-to-display: 5;
+$sidebar-image-display: none; //change this to block if you want images to show up in the sidebar
+
+
+//==============
+// Posts sidebar
+//==============
+
+.content.appealActions,
+.postAside{
+	padding: 0;
+	margin-bottom: 20px;
+	.appeals{
+		a.button{
+			margin-bottom: 5px;
+		}
+	}
+}
+
+
+//================
+// Sidebar widgets
+//================
+
+.associated{
+
+	.readMore{
+
+		// hide this because it's hard to style properly
+		display: none;
+		// display: inline-block;
+		// clear: both;
+		// margin: 10px 0 0;
+	}
+
+	// hide the footer in sidebar by default
+	.postFooterWrapper{
+		display: none;
+	}
+}
+
+ul.associatedListing{
+	li{
+		display: none;
+		border-bottom: 1px solid $border-color;
+
+		&:nth-child(-n+#{$number-of-posts-to-display}){
+			display: block;
+		}
+
+		img{
+			display: $sidebar-image-display;
+		}
+	}
+
+	h3{
+		font-size: $default-body-font-size;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+
+// ==============
+// Featured posts
+// ==============
+
+.associatedBox{
+	padding: 0;
+	background-color: transparent;
+}
+
+// hide tag cloud by default
+.associatedTagCloud{
+	display: none;
+}
+
+@media (max-width:  $mobile-breakpoint){
+	.content.appealActions,
+	.postAside{
+		padding: 0;
+		margin-top: 40px;
+	}
+}

@@ -1,0 +1,174 @@
+// =====
+// Posts
+// =====
+
+$sidebar-width: 260px;
+
+.headerText{
+	margin: 3rem auto 1rem auto;
+	h1{
+		font-size: 2.25rem;
+		margin-top: 48px;
+	}
+}
+
+.postContent{
+	padding-right: $gutter-width * 2;
+
+	@if $sidebar-width == 100% {
+	    width: 100%;
+	    float: none;
+	    padding-left: 0;
+	    padding-right: 0;
+
+	} @else {
+		width: calc(100% - #{$sidebar-width});
+	}
+
+	blockquote:before {
+        display: none;
+    }
+
+    & > h1:first-of-type {
+    	margin-top: 0;
+    }
+}
+
+.appealActions,
+.postAside{
+	float: right;
+
+	@if $sidebar-width == 100% {
+	    width: 100%;
+	    float: none;
+	    padding-left: 0;
+	    padding-right: 0;
+	    margin-top: $gutter-width;
+
+	} @else {
+		width: $sidebar-width;
+		min-width: $sidebar-width;
+	}
+}
+
+// ===========
+// Post footer
+// ===========
+
+.postFooterWrapper{
+
+	clear: both;
+
+	.postFooter{
+		padding: 0;
+		border: 0;
+		font-size: $default-body-font-size;
+	}
+
+	.publishDetailsWrapper{
+		margin-top: 0;
+		&:after{
+			content: '';
+		    display: block;
+		    clear: both;
+		    visibility: hidden;
+		}
+	}
+
+	p{
+		font-size: $default-body-font-size;
+		display: inline-block;
+		float: none;
+		margin: 0 20px 10px 0;
+	}
+
+	.shareWrapper,
+	.relatedWrapper{
+
+		margin-top: $site-container-padding * 2;
+
+		ul.relatedList{
+			padding-left: 0;
+			display: inline;
+		}
+	}
+
+
+	// stuff to hide in the footer - you can add/remove stuff as you wish.
+
+	p.associatedStartDate,
+	p.associatedEndDate,
+	.publishDetailsWrapper,
+	.locationDetails,
+	.relatedWrapper{
+		display: none;
+	}
+
+}
+
+// ===================
+// Page social sharing
+// ===================
+
+.shareWrapper{
+	text-align: center;
+	font-size: 18px;
+	ul.shareList{
+		margin-top: 10px;
+		li{
+			float: none;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+
+// Images
+
+.postContent,
+.listingIntro,
+.accordianBody{
+	img{
+		max-width: 100%;
+		height: auto;
+	}
+
+	iframe{
+		max-width: 100%;
+	}
+}
+
+.carousel .listingIntro img{
+	width: auto;
+}
+
+
+@media screen and (max-width: $mobile-breakpoint){
+	.contentBlock, .postAside, .listContent, .postContent, .appealActions{
+		width: 100%;
+		padding: 0;
+		float: none;
+	}
+
+	// reset floats on mobile
+
+	img.postImageFloatLeft,
+	img.postImageFloatRight,
+	.image-align-left,
+	.image-align-right{
+		display: block;
+		float: none;
+		margin: 10px auto;
+	}
+}
+
+
+@media (max-width: 768px){
+
+	.headerText	h1{
+		font-size: $default-body-font-size * 1.8;
+	}
+
+}

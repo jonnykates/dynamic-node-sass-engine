@@ -1,0 +1,245 @@
+// ===================
+// Image / text layout
+// ===================
+
+@mixin image-text-layout($layout, $vertical-image-width: 40%){
+
+	@if $layout == "horizontal-split"{
+		flex-direction: row;
+
+		.home-feature-image-link,
+		.listed-post-image-link{
+			width: 100%;
+			display: block;
+		}
+	}
+
+	@else if $layout == "vertical-split"{
+		.embed-container,
+		.home-feature-image-link,
+		.listed-post-image-link{
+			width: $vertical-image-width;
+			float: left;
+		}
+
+		.embed-container{
+			// work out the padding bottom ratio according to the image width
+			padding-bottom: percentage(0.56215 * ($vertical-image-width / 100%));
+		}
+
+		.homeFeatureDetailsWrapper,
+		.listedPostText{
+			width: 100% - $vertical-image-width;
+			float: right;
+			padding-left: 20px;
+		}
+
+		@include clearFix;
+
+		@media screen and (max-width: $mobile-breakpoint){
+
+			.home-feature-image-link,
+			.listed-post-image-link,
+			.embed-container,
+			.listedPostText,
+			.homeFeatureDetailsWrapper{
+				width: 100%;
+				float: none;
+			}
+
+			.embed-container{
+				padding-bottom: 56.125%;
+			}
+		}
+	}
+
+	@else if $layout == "textover-image" {
+		
+		position: relative;
+		background-color: #000;
+		min-height: 200px;
+
+		.home-feature-image-link,
+		.listed-post-image-link{
+			display: block;
+			background-color: #000;
+			width: 100%;
+
+			img{
+				opacity: 0.5;
+				margin-bottom: 0;
+			}
+		}
+
+		.listedPostText,
+		.homeFeatureDetailsWrapper{
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+			padding: 0 20px;
+			margin: 0 auto;
+			z-index: 1;
+			left: 0;
+			right: 0;
+
+			h2, a, p {
+				color: #fff;
+				text-align: center;
+			}
+
+			@media (max-width: $mobile-breakpoint){
+				position: relative;
+				top: auto;
+				transform: none;
+				padding: 20px;
+			}
+		}
+
+		&:hover{
+			.home-feature-image-link img,
+			.listed-post-image-link img{
+				opacity: 0.3;
+			}
+		}
+	}
+
+}
+
+@mixin feeditem-image-text-layout($layout, $vertical-image-width: 40%){
+	display: flex;
+
+	@if $layout == "horizontal-split"{
+		flex-direction: row;
+		justify-content: flex-start;
+		padding-bottom: 20px;
+	}
+
+	@if $layout == "vertical-split" {
+		flex-direction: row;
+		justify-content: flex-end;
+	  align-items: flex-end;
+	  position: relative;
+		@media screen and (max-width: $mobile-breakpoint){
+			margin-top: $gutter-width;
+
+			h3{
+				margin-top: 20px;
+			}
+		}
+	}
+
+	@if $layout == "textover-image" {
+		position: relative;
+		background-color: #000;
+
+		h3 a {
+			color: #fff;
+		}
+
+		p, .postFooterWrapper{
+			display: none;
+		}
+	}
+
+	.home-feed-image-link{
+		display: block;
+		margin: 0;
+
+		@if $layout == "horizontal-split"{
+			width: 100%;
+			float: none;
+			position: static;
+			left: auto;
+			top: auto;
+		}
+
+		@else if $layout == "vertical-split" {
+			width: $vertical-image-width;
+			position: absolute;
+			left: 0;
+			top: 0;
+
+			@media screen and (max-width: $mobile-breakpoint){
+				width: 100%;
+				float: none;
+			}
+		}
+
+		@else if $layout == "textover-image" {
+			width: 100%;
+			float: none;
+			position: static;
+			left: auto;
+			top: auto;
+
+			img{
+				opacity: 0.5;
+			}
+
+			&:hover{
+				img{
+					opacity: 0.3;
+				}
+			}
+		}
+
+		img.banner{
+			margin-bottom: 0;
+		}
+	}
+
+	p{
+		margin-bottom: 0;
+	}
+
+	h3, p, .postFooterWrapper{
+
+		@if $layout == "horizontal-split"{
+			width: 100%;
+			float: none;
+			margin: 20px 0 0;
+			padding: 0 20px;
+		}
+		
+		@else if $layout == "vertical-split" {
+			width: 100% - $vertical-image-width;
+			padding-left: 20px;
+			margin-top: 0;
+
+			@media screen and (max-width: $mobile-breakpoint){
+				width: 100%;
+				float: none;
+				padding-left: 0;
+				clear: inherit;
+			}
+		}
+
+		@else if $layout == "textover-image" {
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+			text-align: center;
+			margin: 0;
+			padding: 0 20px;
+
+			@media (max-width: $mobile-breakpoint){
+				position: relative;
+				top: auto;
+				transform: none;
+				padding: 20px;
+			}
+		}
+	}
+
+	@include clearFix;
+
+	&:hover{
+		cursor: pointer;
+	}
+
+	.shareWrapper{
+		display: none;
+	}
+}

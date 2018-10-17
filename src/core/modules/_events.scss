@@ -1,0 +1,163 @@
+
+// =============
+// Event listing
+// =============
+
+.listing .listedEvent{
+	height: auto;
+
+	.listedPostText {
+		height: auto;
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	.postFooterWrapper{
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		margin: 0;
+		padding: 0 1.5rem;
+
+		.postFooter {
+			margin: 0;
+			&:after {
+				visibility: hidden;
+				display: block;
+				font-size: 0;
+				content: " ";
+				clear: both;
+				height: 0;
+			}
+		}
+
+		p.associatedStartDate {
+			display: block;
+			font-weight: 700;
+			time span:last-of-type {
+				display: none;
+			}
+			strong {
+				width: 16px;
+				height: 21px;
+				display: inline-flex;
+				overflow: hidden;
+				margin-right: 5px;
+				&:before {
+					width: 20px;
+					height: 20px;
+					font-family: 'FontAwesome';
+					content: '\f073';
+					font-size: 1rem;
+					display: block;
+				}
+			}
+		}
+
+		p{
+			margin-right: 0;
+		}
+
+		.relatedWrapper, .publishDetailsWrapper{
+			display: none;
+		}
+	}
+}
+
+
+
+// ===================
+// Event booking table
+// ===================
+
+.eventContent{
+
+	table{
+
+		td{
+			padding: 10px;
+		}
+
+		input[type="text"]{
+			margin-top: 0;
+		}
+
+		&.itemColumn{
+			width: 40%;
+		}
+
+		h3{
+			margin-top: 0;
+		}
+	}
+
+	thead{
+	  color: rgba($main-font-colour, 0.5);
+	}
+
+}
+
+
+h3.itemName{
+	font-size: $default-body-font-size;
+}
+
+.itemColumn{
+	width: 40%;
+}
+
+
+// =============
+// Event widgets
+// =============
+
+a.mapLink {
+	margin-top: 5px;
+}
+
+.eventDetails{
+	img{
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+
+@media (max-width: 1024px){
+
+	.itemColumn{
+		width: 20%;
+	}
+
+}
+
+@media (max-width: $mobile-breakpoint){
+
+	a.mapLink,
+	a.addToCalender,
+	a.eventBookingBtn{
+			width: 100%;
+			margin-right: 0;
+			text-align: center;
+	}
+}
+
+@media (max-width: 540px){
+	.priceColumn .price,
+	.eventPostPage .itemName {
+	    font-size: 1em;
+	}
+
+	.quantityColumn{
+
+		min-width: 120px;
+
+		input{
+			width: 40%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
