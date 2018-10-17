@@ -1,0 +1,82 @@
+// =================
+// Traditional theme
+// =================
+
+
+// Set-up
+@import '../core/utils/_config';
+@import 'utils/_config';
+
+
+// ====
+// Core
+// ====
+
+// Functions
+@import '../core/utils/_mixins';
+
+// Base
+@import '../core/base/_scaffolding';
+@import '../core/base/_typography';
+@import '../core/base/_tables';
+@import '../core/base/_form-elements';
+
+// Components
+@import '../core/components/_buttons';
+@import '../core/components/_socialIcons';
+@import '../core/components/_comments';
+@import '../core/components/_tabs';
+@import '../core/components/_expandables';
+@import '../core/components/_filters';
+@import '../core/components/_totalisers';
+@import '../core/components/_quickGivingPanel';
+@import '../core/components/_search';
+@import '../core/components/_footerFindUs';
+@import '../core/components/_carouselSlideSummary';
+
+
+// Posts
+@import '../core/posts/_posts';
+@import '../core/posts/_login-register';
+@import '../core/posts/_search';
+
+// Layouts
+@import '../core/layouts/_navigation.scss';
+@import '../core/layouts/_sidebar';
+@import '../core/layouts/_flexTable';
+
+// Modules
+@import '../core/modules/appeals/_appeals';
+@import '../core/modules/_donate';
+@import '../core/modules/_events';
+@import '../core/modules/shop/_shop';
+@import '../core/modules/_fundraisers';
+
+
+// =====
+// Theme
+// =====
+
+// Components
+@import 'components/_buttons';
+@import 'components/_carouselContainer';
+@import 'components/_shareList';
+@import 'components/_expandables';
+@import 'components/_google-translate';
+
+// Layouts
+@import 'layouts/_header';
+@import 'layouts/_footer';
+@import 'layouts/_navigation';
+@import 'layouts/_newsletter';
+@import 'posts/_listing';
+@import 'posts/_posts';
+@import 'layouts/_sidebar';
+
+// Modules
+@import 'modules/_products';
+
+// homepage
+@import 'posts/home/_intro';
+@import 'posts/home/_features';
+@import 'posts/home/_feeds';

@@ -1,0 +1,16 @@
+.shopLandingContent {
+    .postFooterWrapper {
+        margin-top: 0px;
+
+        .productFooter {
+            margin-top: 0px;
+        }
+    }
+}
+
+@if $card-borders == true {
+  .shopLandingContent .listedPost.listedProduct,
+  .productList .listedPost.listedProduct {
+    border: 1px solid $border-color;
+  }
+}

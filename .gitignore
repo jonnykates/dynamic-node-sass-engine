@@ -1,1 +1,15 @@
-/node_modules/
+# Mac OSX
+.DS_Store
+
+# node
+node_modules/
+npm-debug.log
+
+# SASS
+.sass-cache/
+
+# Codekit
+*.codekit3
+
+# VS Code
+.vs

@@ -1,0 +1,43 @@
+body.has-google-translate {
+  ul#menuAdmin {
+    li.menuAdminSearch {
+      flex: auto;
+      flex-grow: 0;
+      margin-left: 20px;
+    }
+
+    li.google-translate-element {
+      flex-grow: 1;
+      flex: 1;
+      text-align: right;
+
+      // Undo some of our styling for this
+      a {
+        color: initial;
+        line-height: initial;
+        padding: initial;
+        display: initial;
+
+        &:hover {
+          background-color: initial;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $mobile-breakpoint + 1px) and (max-width: $tablet-breakpoint) {
+    ul#menuAdmin ul.socialIcons {
+      display: none; // Not enough space for everything now I'm afraid
+    }
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    .menuAdminContainer {
+      display: block;
+    }
+
+    ul#menuAdmin > *:not(.google-translate-element) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+// ===============
+// Site URL config
+// ===============
+
+$site-url: '/small-charity/themes/traditional/assets/'!default;
+// $site-url: '/assets/';
+
+//========
+// Colours
+//========
+
+$primary-colour: $core__primary-colour !default;
+$secondary-colour: $core__secondary-colour !default;
+$donate-colour: $secondary-colour !default;
+$link-colour: null !default; // Will inherit $primary-colour by default
+$impact-stat-colour: null !default; // Will inherit $primary-colour by default
+$navigation-menu-link-colour: #333 !default;
+$grey: #F0F0F0 !default;
+$border-color: #eee;
+$border-radius-size: 0 !default;
+$text-contrast-override: null !default;
+
+
+//=============================
+// Scaffolding - site max-width
+//=============================
+
+$site-max-width: 1170px;
+$site-container-padding: 20px;
+$gutter-width: 60px;
+
+
+//==============
+// Main logo URL
+//==============
+
+$logo-url: 'logo.svg' !default;
+$logo-url-retina: $logo-url !default;
+$logo-width: 120px !default;
+$logo-height: 120px !default;
+
+
+// ==========
+// Typography
+// ==========
+
+$body-font: 'Source Sans Pro', sans-serif !default;
+$main-font-colour: #1E1E1E !default;
+$heading-font: 'Source Serif Pro', Times, serif !default;
+$heading-font-colour: $main-font-colour !default;
+$heading-uppercase: false !default;
+$default-body-font-size: 1rem !default;
+$button-font: $body-font !default;
+$button-uppercase: true !default;
+$navigation-uppercase: false !default;
+
+// ==============
+// Theme settings
+// ==============
+
+// accepts two parameters: "colour-fade" or "image-scale"
+$hover-effect: "colour-fade" !default;
+$totaliser-settings: 'vertical';
+$top-menu: true !default;
+$show-basket: true !default;
+$tagline: true !default;
+$show-carousel-buttons-on-desktop: false !default;
+$card-borders: false !default;
+$show-carousel-summary-text: true !default;
+$show-sidebar: true !default;
+$post-no-sidebar-body-width: 910px !default; // If $show-sidebar is false, how wide do you want post contents? See DES-1674 for discussion.
+
+
+// ==================
+// Mobile breakpoints
+// ==================
+
+$tablet-breakpoint: 1024px; // iPad
+$mobile-breakpoint: 768px;

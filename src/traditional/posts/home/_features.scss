@@ -1,0 +1,169 @@
+// ======================
+// Home Features Settings
+// ======================
+
+.homeFeatures{
+	display: block; //IE fallback
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.homeFeature{
+
+	// reset baseframework nth-child clears
+	&:nth-child(4n+1){
+		clear: inherit;
+	}
+
+	// Choose column span
+	@include column-span(3);
+
+	/// Choose image/text layout. Takes "horizontal-split", "vertical-split" or "textover-image". If using "vertical-split", take second argument to declare image width (default is set to 40%)
+	@include image-text-layout("horizontal-split");
+}
+
+
+
+//==================
+// Homepage features
+// =================
+
+.homeFeaturesWrapper{
+	background-color: #fff;
+	margin: $gutter-width 0 0;
+}
+
+.homeFeature{
+	margin-top: 0;
+	margin-bottom: $gutter-width;
+	margin-left: 0;
+  background-color: #fff;
+
+  @if $card-borders == true {
+    border: 1px solid $border-color;
+  }
+
+	h2 {
+		a {
+			color: $heading-font-colour;
+			position: relative;
+			border-bottom: 3px solid transparent;
+		}
+	}
+
+	p{
+		margin-bottom: 0;
+	}
+
+	&:hover{
+    background-color: #fff;
+    border-color: $primary-colour;
+
+		h2 a {
+			text-decoration: none;
+			border-bottom-color: $primary-colour;
+			@if ($heading-font-colour != $main-font-colour) {
+				color: darken($heading-font-colour, 10%);
+			}
+		}
+	}
+}
+
+.homeFeature.homeFeatureSnippets{
+	&:hover{
+		cursor: default;
+	}
+}
+
+.homeFeature .listedPostText,
+.homeFeatureDetailsWrapper{
+	padding: 1.5rem;
+	h2{
+		margin-top: 0;
+	}
+
+	.featureFooter{
+		display: none;
+	}
+}
+
+
+// ----------------
+// Donation Box
+// ----------------
+
+.homefeaturecategory-homepage-donate {
+	width: 100%;
+	background-color: $grey;
+	margin-top: 5rem;
+  padding: 4rem 2rem;
+  border: none;
+
+	@media screen and (max-width: 560px){
+		padding: 4rem 1rem;
+  }
+
+	&:hover {
+		background-color: $grey;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+		margin: 0 auto 1rem;
+		text-align: center;
+		width: 100%;
+		@media screen and (max-width: 560px){
+			font-size: 1.75rem;
+		}
+	}
+
+	.quickGivingPanel {
+    padding: 1rem;
+  }
+
+  .quickGivingPanel .selectDonationAmount .donationAmount {
+    .donationAmountThumbnail,
+    img {
+      display: none;
+    }
+  }
+
+	// make sure child span that contains the donation form is 100% width.
+	& > span {
+		width: 100%;
+	}
+
+}
+
+
+
+@media screen and (max-width: $mobile-breakpoint){
+
+	.homeFeaturesWrapper {
+		margin: 0;
+  }
+
+  // If there's no home intro, then leave some margin at the top
+  .homeIntroWrapper.hidden + .homeFeaturesWrapper {
+    margin-top: 20px;
+  }
+
+	.homeFeature{
+		width: 100%;
+		float: none;
+		margin-right: 0;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		margin-bottom: 1rem;
+	}
+
+}
+
+@import '_stats';

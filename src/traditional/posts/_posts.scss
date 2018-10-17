@@ -1,0 +1,36 @@
+@if $show-sidebar == false {
+  body:not(.eventsPostBody):not(.appealsPostBody):not(.fundraiserPostPage):not(.pages-contact) .post {
+
+    .postAside {
+      display: none;
+    }
+
+    .headerText,
+    .postContent {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .postContent {
+      padding-right: 0px;
+      float: none;
+      max-width: $post-no-sidebar-body-width;
+    }
+
+    .headerText {
+      @if $post-no-sidebar-body-width == 100% {
+        max-width: $post-no-sidebar-body-width;
+      } @else {
+        max-width: calc(#{$post-no-sidebar-body-width} + (#{$site-container-padding} * 2));
+      }
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+      .postContent,
+      .headerText {
+        max-width: 100%;
+      }
+    }
+  }
+}

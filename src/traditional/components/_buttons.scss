@@ -1,0 +1,207 @@
+// =======
+// Buttons
+// =======
+
+.button,
+a.button:link,
+a.button:visited,
+.commentAddImage,
+button,
+#totaliserActions .buttonDonate,
+#totaliserActions .buttonFundraise,
+.commentAddImage,
+.button.ghostContinue,
+.readMore,
+a.addToCalender,
+.post_collapseReadMore a,
+.listedFilters a.filter,
+.appliedFilters span.filter,
+.groupedFilters .filter,
+a.cta-button{
+	background-color: $primary-colour;
+	@include text-contrast($primary-colour);
+	padding: 0.75em 1.5em;
+	margin-right: 5px;
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	transition: all 300ms ease;
+
+	&:hover{
+		@include text-contrast($primary-colour);
+		background-color: darken($primary-colour, 10%);
+		cursor: pointer;
+		text-decoration: none;
+		transition: all 300ms ease;
+	}
+
+	// hide "Populate with your Facebook details button by default"
+	&.facebookPopulate{
+		display: none;
+	}
+
+	@media (max-width: 480px){
+
+		// force all buttons to be full width on mobile
+		width: 100%;
+		margin: 5px 0;
+	}
+}
+
+.mainCallToAction a.button-alt,
+.mainCallToAction a.cta-button:not(.cta-donate) {
+
+	// If the $primary-colour is going to be accessible on top of white, then go for the outlined button style
+	@if(contrast-checker($primary-colour) == "true") {
+		background-color: transparent;
+		box-shadow: inset 0 0 0 4px $primary-colour;
+		color: $primary-colour;
+
+		&:hover {
+			color: #fff;
+			box-shadow: inset 0 0 0 4px darken($primary-colour, 10%);
+			background-color: darken($primary-colour, 10%);
+		}
+	}
+
+	// Otherwise we need to fall back to a solid colour
+	@else {
+		background-color: $primary-colour;
+		@include text-contrast($primary-colour);
+		&:hover {
+			background-color: darken($primary-colour, 10%);
+		}
+	}
+
+	// Or, if this is the LAST button (i.e. there's no donate button), then make it solid
+	&:last-of-type {
+		background-color: $primary-colour;
+		box-shadow: none;
+		@include text-contrast($primary-colour);
+
+		&:hover {
+			background-color: darken($primary-colour, 10%);
+		}
+	}
+}
+
+// Style donate buttons
+a.button.donate,
+a.button.donateBtn,
+a.cta-button.cta-donate,
+#totaliserActions .buttonDonate {
+	background-color: $donate-colour;
+	@include text-contrast($donate-colour);
+
+	&:hover {
+		background-color: darken($donate-colour, 10%);
+	}
+}
+
+span.readMore a{
+	@include text-contrast($primary-colour);
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+
+// =============================
+// Icon buttons, e.g. FAQ expand
+// =============================
+
+a.buttonIcon:link, a.buttonIcon:visited,
+a.remove, a.remove:link{
+	background-color: $primary-colour;
+	@include text-contrast($primary-colour);
+	vertical-align: middle;
+	opacity: 1;
+	overflow: hidden;
+	text-align: center;
+	&:hover{
+		background-color: darken($primary-colour, 10%);
+		@include text-contrast($primary-colour);
+		text-decoration: none;
+	}
+
+	&:before{
+		padding-top: 0;
+		line-height: 23px;
+		font-family: 'FontAwesome';
+	}
+
+	&.increaseQuantity{
+		&:before{
+			content: '\f106';
+		}
+	}
+
+	&.expand,
+	&.decreaseQuantity{
+		&:before{
+			content: '\f107';
+		}
+	}
+
+	&.remove{
+		&:before{
+			content: '\f00d';
+		}
+	}
+}
+
+
+// Cancel buttons
+// there are lots of cancel buttons on the platform that do nothing. Why don't we hide them instead for better UX.
+
+.postCreateButtons,
+.passwordResetButtons,
+.yourDetailsButtons,
+.signInButtons,
+.registerButtons{
+
+	// hide cancel buttons
+	.cancel{
+		display: none;
+	}
+}
+
+button.register,
+button.signIn,
+.button.eventBookingBtn,
+button.confirm,
+button.send{
+	min-width: 100px;
+}
+
+#submit-button-wrapper button.donate{
+	background-color: $secondary-colour;
+	margin: 0;
+	&:hover{
+		background-color: darken($secondary-colour, 10%);
+	}
+}
+
+@media screen and (max-width: 992px){
+
+	a.buttonIcon:link{
+
+		&.increaseQuantity, &.decreaseQuantity{
+			width: 16px;
+			height: 16px;
+			background-color: transparent;
+			color: $primary-colour;
+			border-radius: 0;
+			font-size: 16px;
+			&:before{
+				padding: 0;
+				line-height: 16px;
+				height: 16px;
+			}
+
+			&:hover{
+				color: $primary-colour;
+			}
+		}
+	}
+}

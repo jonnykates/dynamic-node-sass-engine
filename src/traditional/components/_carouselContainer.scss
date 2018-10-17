@@ -1,0 +1,197 @@
+// =========
+// Carousel
+// =========
+
+$carousel-overlay-colour: #fff;
+$carousel-overlay-opacity: 0.95;
+$carousel-overlay-width: 40%;
+
+$carousel-controls-colour: #fff;
+$carousel-caption-text-color: $main-font-colour;
+
+
+// ====================
+// Carousel Center Text
+// ====================
+
+.carousel{
+	max-width: $site-max-width;
+	margin: 0 auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+
+ul.carouselSlides {
+	padding: 0 $site-container-padding;
+}
+
+.carouselDetailWrapper{
+	width: $carousel-overlay-width;
+	margin-left: 0;
+	top: auto;
+	left: 2rem;
+	bottom: 2rem;
+	padding: 2rem;
+	background-color: rgba($carousel-overlay-colour,$carousel-overlay-opacity);
+
+	p,
+	.totaliserFigure,
+	.totaliserLabel,{
+		color: $carousel-caption-text-color;
+		@media screen and (max-width: $tablet-breakpoint){
+			@include text-contrast($primary-colour);
+		}
+	}
+
+	h2.carouselSlideHeading a,
+	h2.carouselSlideHeading a:link {
+		color: $heading-font-colour;
+		@media screen and (max-width: $tablet-breakpoint){
+			@include text-contrast($primary-colour);
+		}
+	}
+
+	h2 a{
+		border-bottom: 3px solid transparent;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+
+	&:hover{
+		cursor: pointer;
+		h2 a{
+			border-bottom-color: $primary-colour;
+		}
+	}
+}
+
+.carouselSlideDetail{
+	width: 100%;
+	padding: 0;
+	background-color: transparent;
+	position: relative;
+	margin: 0 auto;
+	font-size: 1em;
+	left: 0;
+	h2, p{
+		text-align: left;
+	}
+	h2{
+		margin-top: 0;
+	}
+	p{
+		margin-bottom: 0;
+	}
+	.readMore {
+		display: none;
+	}
+}
+
+
+// =====================
+// Add slide fade in/out
+// =====================
+
+.carouselSlide{
+	display: block;
+	opacity: 1;
+	position: relative;
+	-webkit-transition: opacity 500ms ease-in-out;
+	-moz-transition: opacity 500ms ease-in-out;
+	transition: opacity 500ms ease-in-out;
+	max-height: none;
+	&.hidden{
+		opacity: 0;
+		display: block !important;
+		position: absolute;
+		width: 100%;
+	}
+}
+
+
+// ================
+// Video player
+// ================
+
+.showsVideo{
+	display: block;
+	position: relative;
+	&:before{
+		margin: 0 auto;
+		left: 0;
+ 		right: 0;
+ 		top: 50%;
+ 		transform: translate(0, -50%);
+	}
+}
+
+
+@media screen and (max-width: 1000px){
+	.carousel ul{
+		margin-top: 0;
+	}
+}
+
+@media screen and (max-width: $tablet-breakpoint){
+
+	.carousel{
+		margin-top: 0;
+	}
+
+	.carouselDetailWrapper{
+		position: relative;
+		background-color: rgba($primary-colour,1);
+		width: 100%;
+		padding: 20px;
+		bottom: 0;
+		left: 0;
+	}
+
+	.carouselSlideDetail {
+		width: 100%;
+		top: inherit;
+		-ms-transform: inherit;
+		-webkit-transform: inherit;
+		transform: inherit;
+	}
+
+	.carouselSlideDetail {
+		h2, p{
+			text-align: center;
+		}
+	}
+
+
+	// =================
+	// Mobile totalisers
+	// =================
+
+	.carousel{
+		.totaliserPanel{
+			max-width: 200px;
+			margin: 0 auto;
+		}
+		#totaliserActions{
+			margin-top: 20px;
+			.buttonDonate,
+			.buttonFundraise {
+				width: 100%;
+				margin: 0 0 5px 0;
+			}
+
+			.buttonDonate {
+				@if($donate-colour == $primary-colour) {
+					background-color: darken($donate-colour, 10%);
+				}
+			}
+
+			.buttonFundraise {
+				background-color: darken($primary-colour, 10%);
+			}
+		}
+	}
+}
+
+// Import carousel controls and buttons - note you may have to change the controls and buttons colour
+@import 'carouselControlsButtons';

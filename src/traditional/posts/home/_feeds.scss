@@ -1,0 +1,253 @@
+// =============
+// Feed settings
+// =============
+
+.homeFeeds{
+	display: block; //IE fallback
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	&:after {display: none;}
+}
+
+.homeFeed{
+	margin: 0;
+	width: 47%;
+	padding: 0;
+	@media screen and (max-width: 560px){
+		padding: 0;
+	}
+	&:nth-child(4n+1){
+		clear: inherit;
+	}
+}
+
+
+// ==================
+// Feed Item settings
+// ==================
+
+.feedItem{
+
+	/// Choose image/text layout. Takes "horizontal-split", "vertical-split" or "textover-image". If using "vertical-split", take second argument to declare image width (default is set to 40%)
+	@include feeditem-image-text-layout("vertical-split");
+	flex-direction: column;
+	justify-content: flex-start;
+	min-height: 120px;
+	width: 100%;
+}
+
+
+// ===========
+// Feed styles
+// ===========
+
+.homeFeedsWrapper{
+	background-color: #fff;
+	margin: 0 0 2rem;
+	padding: 0;
+}
+
+.feedsTitle{
+	background-color: transparent;
+	padding: 0;
+	margin-bottom: 1.5rem;
+	width: 100%;
+	font-size: 2.5rem;
+	@media screen and (max-width: 560px){
+		font-size: 1.75rem;
+	}
+}
+
+ul.feedList{
+	padding: 0;
+	width: 100%;
+	display: block; //IE fallback
+	display: flex;
+	flex-wrap: wrap;
+
+	@include clearFix;
+}
+
+.homeFeed{
+	margin-left: 0;
+	margin-bottom: $gutter-width;
+}
+
+
+// ================
+// Feed item styles
+// ================
+
+.feedItem{
+	margin-top: 0;
+	margin-bottom: 3rem;
+	background-color: transparent;
+	h3.feedTitle {
+		font-size: 1.375rem;
+		a {
+			position: relative;
+			color: $heading-font-colour;
+			border-bottom: 3px solid transparent;
+		}
+	}
+
+
+	h3.feedTitle,
+	p {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	&:hover {
+		h3.feedTitle a {
+			text-decoration: none;
+			border-bottom-color: $primary-colour;
+			@if ($heading-font-colour != $main-font-colour) {
+				color: darken($heading-font-colour, 10%);
+			}
+		}
+	}
+
+	// hide the Read More button?
+	.readMore{
+		display: none;
+	}
+
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+
+// ===================================================
+// Events feed - hide all non-important footer content
+// ===================================================
+
+.homeFeedevents {
+
+	.postFooterWrapper{
+		clear: both;
+		padding: 0 2rem;
+		margin-top: 1rem;
+
+		.postFooter{
+			padding: 0;
+			border: 0;
+			margin: 0;
+		}
+
+		p{
+			display: block;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+		}
+
+		p.associatedStartDate {
+			display: block;
+			font-weight: 700;
+			strong {
+				width: 16px;
+				height: 21px;
+				display: inline-flex;
+				overflow: hidden;
+				margin-right: 5px;
+				&:before {
+					width: 20px;
+					height: 20px;
+					font-family: 'FontAwesome';
+					content: '\f073';
+					font-size: 1rem;
+					display: block;
+				}
+			}
+
+			time span:last-of-type {
+				display: none;
+			}
+		}
+
+		// hide information we don't need
+		.associatedEndDate,
+		.publishDetailsWrapper,
+		.relatedWrapper,
+		.shareWrapper,
+		.locationDetails{
+			display: none;
+		}
+	}
+}
+
+// Twitter feed
+
+ul.feedList.tweetsWrapper {
+	.tweet{
+		margin: 0 0 1rem 0;
+		padding: 20px;
+		background-color: $grey;
+
+		img{
+			display: none;
+		}
+	}
+
+	.tweetDate{
+		display: block;
+		width: 100%;
+		font-size: $default-body-font-size * 0.9;
+	}
+}
+
+.feedActionWrapper{
+	padding: 0;
+}
+
+
+@media screen and (max-width: 980px){
+	.homeFeed{
+		width: 100%;
+	}
+	.feedItem {
+		min-height: 206px;
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+	.homeFeedsWrapper {
+		margin: 0;
+	}
+
+	.feedItem,
+	.homeFeed{
+		width: 100%;
+		float: none;
+		margin-right: 0;
+	}
+
+	.homeFeed {
+		margin: 4rem 0 0;
+	}
+
+	.feedItem{
+		margin-bottom: 1.5rem; // 4rem;
+		.home-feed-image-link {
+			position: relative;
+			margin-bottom: 1.5rem;
+		}
+
+		h3.feedTitle {
+			font-size: $font-size-h2 * 0.85;
+		}
+
+		h3.feedTitle, p {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+	}
+
+	.homeFeedevents .postFooterWrapper {
+		padding: 0 1.5rem 1.5rem;
+	}
+}

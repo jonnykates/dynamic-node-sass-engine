@@ -1,0 +1,173 @@
+// ===========
+// Search page
+// ===========
+
+.searchPageContainer{
+	margin-right: 0;
+
+	input#searchPage{
+		max-width: 600px;
+		margin-right: 5px;
+	}
+
+	button{
+		width: 40px;
+	    height: 40px;
+	    overflow: hidden;
+	    padding: 0;
+	    margin: 5px 0 0;
+	    display: inline-block;
+		&:before{
+		    margin: 0;
+		    font-weight: normal;
+		    width: 40px;
+		    height: 40px;
+		    line-height: 40px;
+		    font-size: 24px;
+		    display: block;
+			content: '\f002';
+		}
+	}
+}
+
+
+.numberSearchResults{
+	font-size: $default-body-font-size;
+	margin: $site-container-padding*2 0;
+	padding: $site-container-padding;
+	background-color: #eee;
+}
+
+
+.alert{
+	color: #f39c12;
+}
+
+.noSearchResults{
+	text-align: left;
+	border: 0;
+	background-color: rgba(#f39c12,0.2);
+}
+
+.searchListingPage{
+
+	// hide the sidebar
+	.button.newSearch,
+	aside.postAside {
+		display: none;
+	}
+}
+
+select#orderResults{
+	width: 200px;
+}
+
+
+// =======
+// Filters
+// =======
+
+.searchFilterWrapper{
+
+	margin: $site-container-padding*2 0 0 0;
+	font-size: 0.85em;
+
+	.moduleFilterContent{
+		display: inline-block;
+		width: 66%;
+		vertical-align: top;
+	}
+
+	.searchOrderContent{
+		display: inline-block;
+		width: 33%;
+		vertical-align: top;
+		margin-top: 0;
+	}
+	
+	h2{
+		font-size: $default-body-font-size;
+		font-weight: 400;
+		margin-top: 0;
+	}
+}
+
+
+// ====================
+// Search results posts
+// ====================
+
+.listing .searchResultsArea{
+
+	@include clearFix;
+
+	.listedPost{
+		border-top: 2px solid $border-color;
+		padding: $gutter-width/2 0;
+		background-color: transparent;
+		@include column-span(1);
+
+		margin-bottom: 0;
+
+		&.listedAppeal {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		&.listedEvent{
+			.postFooterWrapper{
+				display: none;
+			}
+		}
+
+		.associatedFooter,
+		img{
+			display: none;
+		}
+
+		h2{
+			font-size: $default-body-font-size;
+		}
+
+		p{
+			margin-bottom: 0;
+			span.readMore{
+				display: none;
+			}
+		}
+
+		@include clearFix;
+	}
+}
+
+
+@media (max-width: $mobile-breakpoint){
+
+	.searchListingIntro{
+		padding-bottom: 20px;
+	}
+
+	.searchPageContainer{
+		input{
+			width: 75%;
+		}
+
+		button{
+			margin-right: 0;
+		}
+	}
+
+	.searchFilterWrapper{
+
+		.moduleFilterContent,
+		.searchOrderContent{
+			display: block;
+			width: 100%;
+		}
+
+		.searchOrderContent{
+			margin-top: 10px;
+		}
+	}
+}

@@ -1,0 +1,211 @@
+// ================
+// Listing settings
+// ================
+
+.listing{
+	.listedPost:not(.listedFundraiser){
+		margin-left: 0;
+
+		// Choose column span
+		@include column-span(3);
+
+		// Choose image/text layout. Takes "horizontal-split", "vertical-split" or "textover-image". If using "vertical-split", take second argument to declare image width (default is set to 40%)
+		@include image-text-layout("horizontal-split");
+	}
+}
+
+// =============
+// Listing posts
+// =============
+
+.listing{
+	.listedPost{
+		border-bottom: 0;
+		margin-top: 0;
+		margin-bottom:  $site-container-padding * 2;
+		padding-bottom: 0;
+    background-color: transparent;
+
+    @if $card-borders == true {
+      border: 1px solid $border-color;
+    }
+
+		// Change this based on the ratio of the image. Make sure titles are aligned.
+		// & > .listedPostText:first-child {
+		// 	margin-top: 56.4%;
+		// }
+
+		.listedPostText {
+			background-color: #fff;
+			width: 100%;
+			padding: 1.5rem;
+		}
+
+		.banner{
+			-webkit-backface-visibility: hidden;
+			margin-bottom: 0;
+		}
+
+		h2{
+			margin-top: 0;
+			font-size: 1.375rem;
+			position: relative;
+			display: inline-block;
+			a {
+				color: $heading-font-colour;
+				border-bottom: 3px solid transparent;
+			}
+		}
+
+		&:hover{
+      cursor: pointer; // Whole thing is a link
+      border-color: $primary-colour;
+
+			h2 a {
+				text-decoration: none;
+				border-bottom-color: $primary-colour;
+				@if ($heading-font-colour != $main-font-colour) {
+					color: darken($heading-font-colour, 10%);
+				}
+			}
+		}
+
+
+		// read more buttons are hidden by default on listing pages
+		.readMore,
+		.postFooterWrapper{
+			display: none;
+		}
+	}
+
+	.postAside{
+		display: none;
+	}
+}
+
+#curProjs,
+#comProjs,
+.funArea,
+.listContent{
+	float: none;
+	width: 100%;
+	display: block;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.faqListingPage{
+	.listContent{
+		flex-direction: column;
+	}
+}
+
+.listFooter{
+	width: 100%;
+	a.button:link{
+		margin: 5px;
+	}
+}
+
+// ==============================================
+// BLOGS listing - i.e. here are all of our blogs
+// ==============================================
+
+.blogsListingPage .listContent {
+  > h1 {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+.listedPost .blogDetails {
+  display: none;
+}
+
+
+// ========================
+// Google Map listing pages
+// ========================
+
+// Platform generated google maps
+div[id*='googleMap'] {
+	max-width: 100% !important;
+}
+
+
+span.googleSearchWrapper{
+	padding: 20px;
+	background-color: $border-color;
+
+	input[type="text"]{
+		margin: 0;
+		font-size: $default-body-font-size;
+		padding: 10px;
+	}
+	.button{
+		display: inline-block;
+		margin: 0;
+	}
+}
+
+
+// overwrite baseframework madness
+.content.listContent.mapResultList{
+	border: 0;
+	margin-top: 40px;
+	&:before{
+		border-bottom-color: $border-color;
+		margin-bottom: 40px;
+	}
+
+	.listedPost{
+		border-bottom-color: $border-color;
+		width: 100%;
+	}
+
+	.listedPostText{
+		font-size: $default-body-font-size;
+	}
+
+	h2{
+		font-size: $default-body-font-size;
+	}
+
+	.readMore{
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: $mobile-breakpoint){
+	.listing .listedPost:not(.listedFundraiser){
+		width: 100%;
+		float: none;
+		padding: 0;
+		margin-right: 0;
+		margin-bottom: 1rem;
+	}
+
+	.content.listContent.mapResultList .listingBanner {
+		float: none;
+		width: 100%;
+		margin: 0 0 20px 0;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.listFooter{
+		a.button:link{
+			margin: 0 0 5px 0;
+			width: 100%;
+		}
+	}
+
+	span.googleSearchWrapper{
+		input[type="text"] {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+}

@@ -1,0 +1,71 @@
+// ==========
+// Newsletter
+// ==========
+
+// Note: the class 'NewsletterSign-up' is defined by the snippet title - therefore, if you change the snippet title the following code will not work, unless you change the class name to whatever the new title is.
+
+.NewsletterSign-up {
+
+	@include column-span(4);
+	float: left;
+
+  .mc-field-group,
+	.formQuestion{
+		margin-top: 5px;
+
+		@include column-span(1);
+		flex-direction: column;
+
+		input {
+			border: 0;
+		}
+
+		label{
+			text-align: left;
+		}
+	}
+
+  button,
+  #mc-embedded-subscribe {
+		margin-top: 1rem;
+		&:hover{
+
+		}
+	}
+
+	@include clearFix;
+}
+
+.userLoggedIn .NewsletterSign-up button.groupSignUpBtn {
+    margin: 20px 0;
+    float: none;
+    clear: both;
+    display: block;
+}
+
+@media screen and (max-width: $tablet-breakpoint){
+	.NewsletterSign-up{
+		@include column-span(2);
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+	.NewsletterSign-up{
+		width: 100%;
+		margin-right: 0;
+		display: block;
+    float: none;
+    .mc-field-group,
+		.formQuestion{
+			float: none;
+			width: 100%;
+			margin-top: 10px;
+    }
+    #mc-embedded-subscribe,
+		button{
+			margin-top: 20px;
+			float: none;
+			width: 100%;
+		}
+	}
+}

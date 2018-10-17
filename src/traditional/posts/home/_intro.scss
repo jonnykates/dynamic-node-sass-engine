@@ -1,0 +1,44 @@
+//===============
+// Homepage intro
+// ==============
+
+.homeIntroWrapper{
+	margin: 4rem auto;
+	max-width: 900px;
+}
+
+.homeIntro{
+	font-family: $heading-font;
+	font-size: inherit;
+	margin-bottom: 0;
+	padding: 0;
+
+	*{
+		margin-bottom: 0;
+		font-size: 2rem;
+		line-height: 1.8em;
+		font-weight: 700;
+	}
+}
+
+@media (max-width: $mobile-breakpoint){
+
+	.homeIntroWrapper{
+		margin: 2rem auto;
+	}
+	.homeIntro *{
+		font-size: 1.5rem;
+	}
+
+}
+
+
+// reset baseframework
+@media only screen and (max-width: 540px){
+
+	.homeIntro{
+		width: 100%;
+		margin: 0;
+	}
+
+}

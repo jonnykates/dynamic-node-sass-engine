@@ -1,0 +1,229 @@
+// ======
+// Footer
+// ======
+
+$footer-bg-colour: $grey;
+$footer-text-colour: $main-font-colour;
+
+
+// ==============
+// Footer columns
+// ==============
+
+.footerBox{
+
+	@include column-span(4);
+	flex-direction: column;
+
+	&.footerBox5 { // change this from .Footercredits to be more strict
+		@include column-span(1);
+	}
+}
+
+
+// ======
+// Footer
+// ======
+
+.pageFooterWrapper{
+	margin-top: $gutter-width;
+	border-top: 0;
+	background-color: $footer-bg-colour;
+	padding: 5rem 0 3rem;
+}
+
+.pageFooter{
+	display: block;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.footerBox{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0 0 0 2rem;
+	font-size: 0.875rem;
+
+	h1, h2, h3{
+		margin-top: 0;
+		font-size: 1.375rem;
+		color: $heading-font-colour;
+		//text-transform: uppercase;
+	}
+
+	ul, ol{
+		li{
+			list-style: none;
+			color: $footer-text-colour;
+			margin-right: 5px;
+		}
+	}
+
+	p, a{
+		color: $footer-text-colour;
+		font-size: 0.875rem;
+	}
+
+	// p {
+	// 	color: $footer-text-colour;
+	// }
+
+	// a {
+	// 	color: $primary-colour;
+	// }
+
+	ul.adminLinks {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	    margin-bottom: 2rem;
+		.menuAdminSearch {
+			order: -1;
+			width: 100%;
+		}
+	}
+
+}
+
+
+.footerLinks {
+	margin: 0;
+	width: 100%;
+}
+
+.footerBox5 { // change this from .Footercredits to be more strict
+	text-align: center;
+	font-size: 0.75rem;
+	margin-top: 5rem;
+	padding-left: 0px;
+	p {
+		font-size: 0.75rem;
+	}
+	ul li{
+		display: inline-block;
+		padding: 0 10px 0 0;
+	}
+	.socialIcons{
+		margin: 20px 0;
+	}
+
+	form.header-search {
+		float: none;
+		margin-bottom: 2rem;
+		position: relative;
+		display: inline-block;
+		#siteSearch {
+			background-color: #fff;
+			color: $main-font-colour;
+
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: $main-font-colour;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: $main-font-colour;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: $main-font-colour;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: $main-font-colour;
+			}
+			&:focus {
+				background-color: #fff;
+			}
+		}
+		button {
+			&:before {
+				color: $grey;
+			}
+		}
+	}
+}
+
+// ==============
+// Footer Twitter
+// ==============
+
+.footerTwitter{
+
+	// hide this by default
+	display: none;
+
+	ul{
+		margin-bottom: 0;
+		li{
+			margin: 20px 0;
+			p{
+				margin-bottom: 5px;
+			}
+			time, cite{
+				font-size: 13px;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+// ============
+// Footer Logos
+// ============
+// The snippet needs to be titled "Footer [l/L]ogos" for this to work
+.footerBox.Footerlogos,
+.footerBox.FooterLogos {
+	margin-top: 30px;
+	border-top: 1px solid darken($footer-bg-colour, 10%);
+	width: 100%;
+	padding: 20px 0 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+
+	> * {
+		margin: 20px 30px;
+
+		@media (max-width: $mobile-breakpoint) {
+			margin: 15px 20px;
+		}
+	}
+
+	img {
+		display: block;
+		max-width: 180px;
+
+		@media (max-width: $mobile-breakpoint) {
+			max-width: 120px;
+		}
+	}
+}
+
+@media screen and (max-width: 1100px){
+	.footerBox {
+		padding: 0 0 0 2rem;
+	}
+}
+
+@media screen and (max-width: $tablet-breakpoint){
+	.footerTwitter, .footerBox{
+		@include column-span(2);
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+
+	.pageFooter{
+		display: block;
+	}
+
+	.footerTwitter, .footerBox{
+		display: block;
+		width: 100%;
+		float: none;
+		text-align: center;
+		margin-bottom: 20px;
+		padding: 0;
+		margin-right: 0;
+	}
+}

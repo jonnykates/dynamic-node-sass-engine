@@ -1,0 +1,370 @@
+// ===========
+// Navigation
+// ===========
+
+.menuMain{
+	background-color: $grey;
+	float: none;
+	position: relative;
+	top: auto;
+
+	// prevent sticky nav from jumping in webkit
+	backface-visibility: hidden;
+	.mobile-search, .mobile-social{
+		display: none;
+	}
+	ul{
+		li{
+			&> a{
+				color: $navigation-menu-link-colour;
+				height: auto;
+				padding: 1rem 1.5rem;
+        font-weight: 400;
+        word-break: normal;
+				&:hover {
+					color: $primary-colour;
+				}
+			}
+			.subMenu{
+				border: 0;
+				background-color: $grey;
+				min-width: 200px;
+				max-width: 200px;
+				z-index: 2;
+				box-shadow: none;
+				li{
+					a{
+						background-color: transparent;
+						padding: 10px 1.5rem;
+
+						@media (max-width: $mobile-breakpoint) {
+							padding: 10px 20px;
+						}
+
+						&:hover{
+							color: $primary-colour;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Hide search container and mainCallToAction inside <nav>, show only on mobile menu
+	.mainCallToAction,
+  form.header-search,
+  .socialIcons {
+		display: none;
+	}
+}
+
+ul.topLevel{
+	width: 100%;
+	max-width: $site-max-width;
+	padding-left: $site-container-padding;
+	padding-right: $site-container-padding;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+
+	// Maintain hover state on top level links when in sub menus
+	@media (min-width: $mobile-breakpoint + 1px) {
+		> li:hover > a {
+			color: $primary-colour;
+		}
+	}
+}
+
+
+.breadcrumbList{
+	margin-bottom: 0;
+}
+
+.breadcrumbItem{
+	float: none;
+	display: inline-block;
+	margin-right: 10px;
+	white-space: inherit;
+	line-height: normal;
+
+	&:before{
+		padding-right: 10px;
+		display: inline-block;
+		font-family: 'FontAwesome';
+		content: '\f105';
+	}
+}
+
+
+//overwrite baseframework
+@media screen and (max-width: 768px){
+	.menuMain li a{
+		border-bottom: 0;
+	}
+}
+
+
+@media screen and (max-width: $tablet-breakpoint){
+
+	// Make the header relative
+	header#pageHeader{
+		position: relative;
+	}
+
+
+	// Show the mobile menu icon
+
+	a.menuMainAlt {
+	    display: block;
+	    color: $main-font-colour;
+	    background-color: transparent;
+	    position: absolute;
+	    float: none;
+	    right: $site-container-padding;
+	    text-align: center;
+	    text-transform: uppercase;
+	    padding: .5em 0;
+			font-weight: 700;
+
+	    &:hover{
+	    	text-decoration: none;
+	    }
+
+	    &:before{
+	    	text-rendering: auto;
+		    -webkit-font-smoothing: antialiased;
+		    padding: 0;
+		    font-size: $default-body-font-size * 1.2;
+		    line-height: inherit;
+		    color: $main-font-colour;
+		    display: block;
+		    font-weight: 400;
+		    font-family: 'FontAwesome';
+				content: '\f0c9';
+			}
+
+			&.active:before {
+				content: '\f00d';
+			}
+	}
+
+
+	// Style the mobile navigation menu
+
+	ul.topLevel{
+		display: block;
+		padding-left: 0;
+		padding-right: 0;
+		border-top: 0;
+	}
+
+	.menuMain {
+		position: absolute;
+		top: 100%; // this value will have to be adjusted to fit your own build
+		z-index: 2;
+		-moz-transition: all 0.4s ease-in;
+		-webkit-transition: all 0.4s ease-in;
+		transition: all 0.4s ease-in;
+		max-height: 0;
+		overflow: hidden;
+
+		&.active{
+			max-height: calc(100vh - 195px);
+			overflow-y: scroll;
+		}
+
+		ul li{
+			display: block;
+			width: 100%;
+
+			.subMenu{
+				padding: 0;
+				margin: 0;
+				max-height: 0;
+				max-width: 100%;
+				overflow: hidden;
+				position: inherit;
+				box-shadow: none;
+				background-color: rgba(#000, 0.05);
+
+				ul{
+					left: auto;
+				}
+			}
+
+			a{
+				border-bottom: 0;
+				position: relative;
+			}
+
+			// Show the mobile menu if it has .active class
+
+			ul.active,
+			&> ul ul.active{
+				max-height: 55em;
+				display: block;
+			}
+
+			ul ul,
+			ul ul ul{
+				display: inherit;
+			}
+		}
+
+
+		// Mobile menu expand icons
+
+		li.hasSubmenu > a:after{
+			padding: 0;
+			position: absolute;
+			font-size: 1em;
+			display: inline-block;
+			top: 10px;
+			right: 20px;
+			font-family: 'FontAwesome';
+			content: '\f107';
+		}
+
+		li.hasSubmenu > a.active:after{
+			font-family: 'FontAwesome';
+			content: '\f106';
+		}
+
+	}
+
+
+	// Search and .mainCallToAction in mobile nav
+
+	.menuMain{
+
+		// Mobile call to action
+
+		.mainCallToAction{
+			display: block;
+			margin: 0;
+			float: none;
+			padding: 20px 20px 5px 20px;
+			ul{
+				background-color: transparent;
+				max-height: none;
+				text-align: center;
+				li{
+					display: inline-block;
+					width: auto;
+					a{
+						padding: 0;
+						height: 40px;
+					}
+				}
+
+				&.socialIcons{
+					text-align: left;
+					margin: 5px 0;
+				}
+			}
+			a.cta-button{
+				width: 100%;
+				margin: 5px 0;
+				text-align: center;
+			}
+			a.cta-donate,
+			.tagline{
+				display: none;
+			}
+		}
+
+		// Mobile search
+
+		form.header-search{
+			padding: 15px 20px 20px;
+			float: none;
+			margin: 0;
+			display: none; // Introduce later
+
+			.searchContainer{
+				padding: 0;
+				position: relative;
+			}
+
+			#siteSearch{
+				width: calc(100% - 50px);
+				-webkit-appearance: none;
+				border-radius: $border-radius-size;
+				background-color: #fff;
+				color: $main-font-colour;
+				padding-right: 10px;
+				&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				  color: $main-font-colour;
+				}
+				&::-moz-placeholder { /* Firefox 19+ */
+				  color: $main-font-colour;
+				}
+				&:-ms-input-placeholder { /* IE 10+ */
+				  color: $main-font-colour;
+				}
+				&:-moz-placeholder { /* Firefox 18- */
+				  color: $main-font-colour;
+				}
+			}
+
+			button{
+				margin-right: 0;
+				position: absolute;
+				top: 0;
+				right: 0;
+				margin: 0;
+				background-color: $primary-colour;
+			}
+		}
+	}
+}
+
+
+@media (max-width: $mobile-breakpoint){
+	.menuMain.active {
+    max-height: calc(100vh - 100px);
+    padding-bottom: 20px;
+  }
+
+  // Reveal admin, basket and search
+  .menuMain {
+    &> ul > li.menuAdminAltItems{
+      display: block;
+    }
+
+    @if ($show-basket == true) {
+      .topLevel > li.menuAdminAltItems.menuAdminBasket {
+        display: block;
+      }
+    }
+
+    form.header-search {
+      display: block;
+    }
+  }
+
+  // Reveal social icons
+  .menuMain .socialIcons {
+    display: block;
+    padding: 0 1.5rem;
+    border: none;
+
+    li {
+      display: inline-block;
+      width: 40px;
+      margin-right: 5px;
+
+      a {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+	.menuMain .mainCallToAction a.cta-donate {
+		display: block;
+	}
+}

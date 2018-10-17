@@ -1,0 +1,12 @@
+ul.shareList {
+    li {
+        a:hover {
+            opacity: 1;
+            background-color: darken($primary-colour, 10%);
+        }
+    }
+
+    a.shareEmail:before {
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,16 @@
+// contact sidebar
+.staticMap img {
+  max-width: 100%;
+}
+
+.contactOfficeAddress {
+  margin-top: 0;
+}
+
+// Overwrite bf
+@media (max-width: $mobile-breakpoint) {
+  .contactAddress {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

@@ -1,0 +1,101 @@
+// ----------------
+// Impact Box
+// ----------------
+// Unfortunately we have to use !important to overwrite any changes that might be applied
+// as in the wysiwyg that gives the table widths.
+
+$impact-background-colour: $grey;
+
+.homefeaturecategory-homepage-stats {
+	width: 100%;
+	float: none;
+  margin: 0;
+  border: none;
+	padding: 4rem;
+	background-color: $impact-background-colour;
+
+	@media screen and (max-width: 1020px){
+		padding: 4rem 1.5rem;
+	}
+	&:hover {
+		background-color: $impact-background-colour;
+		cursor: default;
+	}
+	h2 {
+		font-size: 2.5rem;
+		margin: 0 auto 1rem;
+		text-align: center;
+		width: 100%;
+		@media screen and (max-width: 560px){
+			font-size: 1.75rem;
+		}
+	}
+	table {
+		width: 100% !important;
+		margin-top: 0;
+	}
+	tbody {
+		background-color: transparent;
+		border: 0;
+		display: flex;
+	}
+	tr {
+		background-color: transparent;
+		display: flex;
+		padding: 0 1rem;
+		flex: 1;
+		flex-direction: column;
+	}
+	td {
+		text-align: center;
+		padding: 0;
+		display: block;
+		h2, h3, h4 {
+			font-size: 5rem;
+			margin-bottom: 0;
+			font-weight: 700;
+
+  		// If we haven't set an $impact-stat-colour, then use $primary-colour through contrast-checker
+			@if($impact-stat-colour == null) {
+
+				$impact-stat-colour: $primary-colour;
+
+				@while(contrast-checker($impact-stat-colour, $impact-background-colour) == "false") {
+					color: $impact-stat-colour;
+					$impact-stat-colour: darken($impact-stat-colour, 1%);
+					@if(contrast-checker($impact-stat-colour, $impact-background-colour) == "true") {
+						color: $impact-stat-colour;
+					}
+				}
+
+			}
+
+			// Otherwise use our $impact-stat-colour override value
+			@else {
+				color: $impact-stat-colour;
+			}
+
+			@media screen and (max-width: 1020px){
+				font-size: 4.5rem;
+			}
+			@media screen and (max-width: 920px){
+				font-size: 3.5rem;
+			}
+		}
+	}
+	tr, td {
+		width: auto !important;
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint){
+	.homefeaturecategory-homepage-stats {
+		display: block;
+		tbody {
+			flex-direction: column;
+		}
+		tr {
+			margin-bottom: 1rem;
+		}
+	}
+}
